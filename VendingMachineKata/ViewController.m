@@ -28,7 +28,55 @@
 }
 
 - (IBAction)AddMoney:(id)sender {
+    UIAlertController * view=   [UIAlertController
+                                 alertControllerWithTitle:@"Insert Coins"
+                                 message:@"Select Coin"
+                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* penny = [UIAlertAction
+                            actionWithTitle:@"Penny"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                //Do some thing here
+                                [view dismissViewControllerAnimated:YES completion:nil];
+                                
+                            }];
+    UIAlertAction* nickel = [UIAlertAction
+                             actionWithTitle:@"Nickel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [view dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    UIAlertAction* dime = [UIAlertAction
+                            actionWithTitle:@"Dime"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                //Do some thing here
+                                [view dismissViewControllerAnimated:YES completion:nil];
+                                
+                            }];
+    UIAlertAction* quarter = [UIAlertAction
+                             actionWithTitle:@"Quarter"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [view dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    
+    [view addAction:penny];
+    [view addAction:nickel];
+    [view addAction:dime];
+    [view addAction:quarter];
+    [self presentViewController:view animated:YES completion:nil];
 }
+
 - (IBAction)TakeChange:(id)sender {
 }
 
