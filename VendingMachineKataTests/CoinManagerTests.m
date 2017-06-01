@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CoinManager.h"
 
 @interface CoinManagerTests : XCTestCase
 
@@ -25,7 +26,10 @@
 }
 
 - (void)testIfPennyIsValid {
-    CoinManager *coinManager = [[CoinManger alloc] init];
+    CoinManager *coinManager = [[CoinManager alloc] init];
+    BOOL pennyIsValid = [coinManager isValidCoin:Penny];
+    XCTAssertFalse(pennyIsValid);
+    
 }
 
 - (void)testExample {

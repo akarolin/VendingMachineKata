@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B1A97491EE0838400DD1846 /* CoinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55931F1EE07C4000D19E1D /* CoinManager.m */; };
 		0B5592EB1EE05EBC00D19E1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592EA1EE05EBC00D19E1D /* main.m */; };
 		0B5592EE1EE05EBC00D19E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592ED1EE05EBC00D19E1D /* AppDelegate.m */; };
 		0B5592F11EE05EBC00D19E1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592F01EE05EBC00D19E1D /* ViewController.m */; };
 		0B5592F41EE05EBC00D19E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B5592F21EE05EBC00D19E1D /* Main.storyboard */; };
 		0B5592F61EE05EBC00D19E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5592F51EE05EBC00D19E1D /* Assets.xcassets */; };
 		0B5592F91EE05EBD00D19E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */; };
-		0B5593041EE05EBD00D19E1D /* VendingMachineKataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5593031EE05EBD00D19E1D /* VendingMachineKataTests.m */; };
 		0B55930F1EE05EBD00D19E1D /* VendingMachineKataUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55930E1EE05EBD00D19E1D /* VendingMachineKataUITests.m */; };
+		0B55931D1EE0672A00D19E1D /* CoinManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55931C1EE0672A00D19E1D /* CoinManagerTests.m */; };
+		0B5593201EE07C4000D19E1D /* CoinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55931F1EE07C4000D19E1D /* CoinManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +48,13 @@
 		0B5592F81EE05EBD00D19E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B5592FA1EE05EBD00D19E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5592FF1EE05EBD00D19E1D /* VendingMachineKataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineKataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B5593031EE05EBD00D19E1D /* VendingMachineKataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VendingMachineKataTests.m; sourceTree = "<group>"; };
 		0B5593051EE05EBD00D19E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B55930A1EE05EBD00D19E1D /* VendingMachineKataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineKataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B55930E1EE05EBD00D19E1D /* VendingMachineKataUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VendingMachineKataUITests.m; sourceTree = "<group>"; };
 		0B5593101EE05EBD00D19E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B55931C1EE0672A00D19E1D /* CoinManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinManagerTests.m; sourceTree = "<group>"; };
+		0B55931E1EE07C4000D19E1D /* CoinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinManager.h; path = VendingMachineKata/CoinManager.h; sourceTree = "<group>"; };
+		0B55931F1EE07C4000D19E1D /* CoinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinManager.m; path = VendingMachineKata/CoinManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 		0B5592DD1EE05EBC00D19E1D = {
 			isa = PBXGroup;
 			children = (
+				0B55931E1EE07C4000D19E1D /* CoinManager.h */,
+				0B55931F1EE07C4000D19E1D /* CoinManager.m */,
 				0B5592E81EE05EBC00D19E1D /* VendingMachineKata */,
 				0B5593021EE05EBD00D19E1D /* VendingMachineKataTests */,
 				0B55930D1EE05EBD00D19E1D /* VendingMachineKataUITests */,
@@ -125,7 +131,7 @@
 		0B5593021EE05EBD00D19E1D /* VendingMachineKataTests */ = {
 			isa = PBXGroup;
 			children = (
-				0B5593031EE05EBD00D19E1D /* VendingMachineKataTests.m */,
+				0B55931C1EE0672A00D19E1D /* CoinManagerTests.m */,
 				0B5593051EE05EBD00D19E1D /* Info.plist */,
 			);
 			path = VendingMachineKataTests;
@@ -276,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5593201EE07C4000D19E1D /* CoinManager.m in Sources */,
 				0B5592F11EE05EBC00D19E1D /* ViewController.m in Sources */,
 				0B5592EE1EE05EBC00D19E1D /* AppDelegate.m in Sources */,
 				0B5592EB1EE05EBC00D19E1D /* main.m in Sources */,
@@ -286,7 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5593041EE05EBD00D19E1D /* VendingMachineKataTests.m in Sources */,
+				0B1A97491EE0838400DD1846 /* CoinManager.m in Sources */,
+				0B55931D1EE0672A00D19E1D /* CoinManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +524,7 @@
 				0B5593151EE05EBD00D19E1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B5593161EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKataTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +533,7 @@
 				0B5593181EE05EBD00D19E1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B5593191EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKataUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +542,7 @@
 				0B55931B1EE05EBD00D19E1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
