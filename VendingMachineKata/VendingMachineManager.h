@@ -14,5 +14,7 @@
 - (void)inputCoin:(CoinType) coin;
 - (NSUInteger)numberOfCoinsInput;
 - (NSUInteger)numberOfCoinsReturned;
+- (NSUInteger)pennyAmountOfCoinsInput;
+- (NSUInteger)pennyAmountOfCoinsReturned;
 
 @end

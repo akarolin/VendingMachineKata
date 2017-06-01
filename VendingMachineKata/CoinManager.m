@@ -8,10 +8,15 @@
 
 #import "CoinManager.h"
 
+
 @implementation CoinManager
 
 - (BOOL)isValidCoin:(CoinType)coin {
     return (coin == Nickel || coin == Dime || coin == Quarter);
+}
+
+- (NSUInteger)addCoinToAmount:(NSUInteger)amount coin:(CoinType)coin {
+    return amount + coin;
 }
 
 @end

@@ -59,4 +59,20 @@
     return [self.coinsReturned count];
 }
 
+- (NSUInteger)pennyAmountOfCoinsInput {
+    NSUInteger total = 0;
+    for (CoinObject *coinObj in self.coinsInput) {
+        total = [self.coinManager addCoinToAmount:total coin:coinObj.coin];
+    }
+    return total;
+}
+
+- (NSUInteger)pennyAmountOfCoinsReturned {
+    NSUInteger total = 0;
+    for (CoinObject *coinObj in self.coinsReturned) {
+        total = [self.coinManager addCoinToAmount:total coin:coinObj.coin];
+    }
+    return total;
+}
+
 @end

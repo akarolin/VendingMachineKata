@@ -47,6 +47,22 @@
     XCTAssertTrue([self.coinManager isValidCoin:Quarter]);
 }
 
+- (void)testAmoutAdder {
+    NSUInteger total = 0;
+    total = [self.coinManager addCoinToAmount:total coin:Penny];
+    XCTAssertTrue(total == 1);
+    
+    total = [self.coinManager addCoinToAmount:total coin:Nickel];
+    XCTAssertTrue(total == 6);
+    
+    total = [self.coinManager addCoinToAmount:total coin:Dime];
+    XCTAssertTrue(total == 16);
+    
+    total = [self.coinManager addCoinToAmount:total coin:Quarter];
+    XCTAssertTrue(total == 41);
+    
+}
+
 
 /*
 - (void)testExample {

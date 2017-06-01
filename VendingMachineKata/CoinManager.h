@@ -21,5 +21,6 @@ typedef NS_ENUM(NSUInteger, CoinType) {
 };
 
 - (BOOL)isValidCoin:(CoinType)coin;
+- (NSUInteger)addCoinToAmount:(NSUInteger)amount coin:(CoinType)coin;
 
 @end
