@@ -7,18 +7,18 @@
 //
 
 #import "ViewController.h"
+#import "VendingMachineManager.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *AmountInputLabel;
-@property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
 
+@property (strong, nonatomic) VendingMachineManager *vendingMachineManager;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.vendingMachineManager = [[VendingMachineManager alloc] init];
 }
 
 
@@ -78,6 +78,13 @@
 }
 
 - (IBAction)TakeChange:(id)sender {
+}
+
+
+- (void)insertCoin:(CoinType) coin {
+    [self.vendingMachineManager insertCoin:coin];
+    NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
+    self.AmountInputLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
 }
 
 @end

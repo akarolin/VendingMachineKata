@@ -42,7 +42,7 @@
     return self;
 }
 
-- (void)inputCoin:(CoinType) coin {
+- (void)insertCoin:(CoinType) coin {
     CoinObject *coinObj = [[CoinObject alloc] initWithCoin:coin];
     if ([self.coinManager isValidCoin:(coin)]) {
         [self.coinsInput addObject:coinObj];

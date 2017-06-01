@@ -7,10 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "ViewController.h"
 
 @interface ViewControllerUnitTests : XCTestCase
 
-@property (strong, nonatomic) UIViewController *viewController;
+@property (strong, nonatomic) ViewController *viewController;
 
 @end
 
@@ -30,9 +31,15 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // used to test setup
-    XCTAssertTrue(YES);
+- (void)testAmountInputLabel {
+    [self.viewController insertCoin:Nickel];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"$0.05"]);
+    [self.viewController insertCoin:Quarter];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"$0.30"]);
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"$1.05"]);
 }
 
 

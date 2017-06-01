@@ -27,22 +27,22 @@
 
 - (void)testValidCoin {
     VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
-    [vendingMachineManager inputCoin:Nickel];
+    [vendingMachineManager insertCoin:Nickel];
     XCTAssertTrue([vendingMachineManager numberOfCoinsInput] == 1);
 
-    [vendingMachineManager inputCoin:Dime];
+    [vendingMachineManager insertCoin:Dime];
     XCTAssertTrue([vendingMachineManager numberOfCoinsInput] == 2);
 
-    [vendingMachineManager inputCoin:Quarter];
+    [vendingMachineManager insertCoin:Quarter];
     XCTAssertTrue([vendingMachineManager numberOfCoinsInput] == 3);
 }
 
 - (void)testInvalidCoin {
     VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
-    [vendingMachineManager inputCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
     XCTAssertTrue([vendingMachineManager numberOfCoinsReturned] == 1);
     
-    [vendingMachineManager inputCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
     XCTAssertTrue([vendingMachineManager numberOfCoinsReturned] == 2);
 
 }
@@ -51,19 +51,19 @@
     VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
     NSUInteger total = 0;
     
-    [vendingMachineManager inputCoin:Nickel];
+    [vendingMachineManager insertCoin:Nickel];
     total = [vendingMachineManager pennyAmountOfCoinsInput];
     XCTAssertTrue(total == 5);
     
-    [vendingMachineManager inputCoin:Dime];
+    [vendingMachineManager insertCoin:Dime];
     total = [vendingMachineManager pennyAmountOfCoinsInput];
     XCTAssertTrue(total == 15);
     
-    [vendingMachineManager inputCoin:Quarter];
+    [vendingMachineManager insertCoin:Quarter];
     total = [vendingMachineManager pennyAmountOfCoinsInput];
     XCTAssertTrue(total == 40);
     
-    [vendingMachineManager inputCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
     total = [vendingMachineManager pennyAmountOfCoinsInput];
     XCTAssertTrue(total == 40);
 }
@@ -72,27 +72,27 @@
     VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
     NSUInteger total = 0;
     
-    [vendingMachineManager inputCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
     total = [vendingMachineManager pennyAmountOfCoinsReturned];
     XCTAssertTrue(total == 1);
     
-    [vendingMachineManager inputCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
     total = [vendingMachineManager pennyAmountOfCoinsReturned];
     XCTAssertTrue(total == 2);
     
-    [vendingMachineManager inputCoin:Nickel];
+    [vendingMachineManager insertCoin:Nickel];
     total = [vendingMachineManager pennyAmountOfCoinsReturned];
     XCTAssertTrue(total == 2);
     
-    [vendingMachineManager inputCoin:Dime];
+    [vendingMachineManager insertCoin:Dime];
     total = [vendingMachineManager pennyAmountOfCoinsReturned];
     XCTAssertTrue(total == 2);
     
-    [vendingMachineManager inputCoin:Quarter];
+    [vendingMachineManager insertCoin:Quarter];
     total = [vendingMachineManager pennyAmountOfCoinsReturned];
     XCTAssertTrue(total == 2);
     
-    [vendingMachineManager inputCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
     total = [vendingMachineManager pennyAmountOfCoinsReturned];
     XCTAssertTrue(total == 3);
 }

@@ -11,7 +11,7 @@
 
 @interface VendingMachineManager : NSObject
 
-- (void)inputCoin:(CoinType) coin;
+- (void)insertCoin:(CoinType) coin;
 - (NSUInteger)numberOfCoinsInput;
 - (NSUInteger)numberOfCoinsReturned;
 - (NSUInteger)pennyAmountOfCoinsInput;
