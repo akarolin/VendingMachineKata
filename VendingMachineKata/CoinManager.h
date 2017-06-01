@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CoinManager.h"
 
 @interface CoinManager : NSObject
 
@@ -20,6 +21,5 @@ typedef NS_ENUM(NSUInteger, CoinType) {
 };
 
 - (BOOL)isValidCoin:(CoinType)coin;
-
 
 @end
