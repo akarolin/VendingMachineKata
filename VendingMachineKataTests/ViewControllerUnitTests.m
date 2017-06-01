@@ -32,6 +32,7 @@
 }
 
 - (void)testAmountInputLabel {
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"INSERT COIN"]);
     [self.viewController insertCoin:Nickel];
     XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"$0.05"]);
     [self.viewController insertCoin:Quarter];
@@ -42,5 +43,13 @@
     XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"$1.05"]);
 }
 
-
+- (void)testAmountOfChangeLabel {
+    XCTAssertTrue([self.viewController.AmountOfChangeLabel.text isEqualToString:@"$0.00"]);
+    [self.viewController insertCoin:Nickel];
+    XCTAssertTrue([self.viewController.AmountOfChangeLabel.text isEqualToString:@"$0.00"]);
+    [self.viewController insertCoin:Penny];
+    [self.viewController insertCoin:Penny];
+    [self.viewController insertCoin:Penny];
+    XCTAssertTrue([self.viewController.AmountOfChangeLabel.text isEqualToString:@"$0.03"]);
+}
 @end

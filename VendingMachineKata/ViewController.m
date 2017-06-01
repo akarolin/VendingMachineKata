@@ -85,6 +85,8 @@
     [self.vendingMachineManager insertCoin:coin];
     NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
     self.AmountInputLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
+    NSUInteger change = [self.vendingMachineManager pennyAmountOfCoinsReturned];
+    self.AmountOfChangeLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",change/100,change%100];
 }
 
 @end
