@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B5592EB1EE05EBC00D19E1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592EA1EE05EBC00D19E1D /* main.m */; };
+		0B5592EE1EE05EBC00D19E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592ED1EE05EBC00D19E1D /* AppDelegate.m */; };
+		0B5592F11EE05EBC00D19E1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592F01EE05EBC00D19E1D /* ViewController.m */; };
+		0B5592F41EE05EBC00D19E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B5592F21EE05EBC00D19E1D /* Main.storyboard */; };
+		0B5592F61EE05EBC00D19E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5592F51EE05EBC00D19E1D /* Assets.xcassets */; };
+		0B5592F91EE05EBD00D19E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */; };
+		0B5593041EE05EBD00D19E1D /* VendingMachineKataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5593031EE05EBD00D19E1D /* VendingMachineKataTests.m */; };
+		0B55930F1EE05EBD00D19E1D /* VendingMachineKataUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55930E1EE05EBD00D19E1D /* VendingMachineKataUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B5593001EE05EBD00D19E1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B5592DE1EE05EBC00D19E1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B5592E51EE05EBC00D19E1D;
+			remoteInfo = VendingMachineKata;
+		};
+		0B55930B1EE05EBD00D19E1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B5592DE1EE05EBC00D19E1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B5592E51EE05EBC00D19E1D;
+			remoteInfo = VendingMachineKata;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B5592E61EE05EBC00D19E1D /* VendingMachineKata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineKata.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B5592EA1EE05EBC00D19E1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0B5592EC1EE05EBC00D19E1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0B5592ED1EE05EBC00D19E1D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0B5592EF1EE05EBC00D19E1D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0B5592F01EE05EBC00D19E1D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0B5592F31EE05EBC00D19E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0B5592F51EE05EBC00D19E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B5592F81EE05EBD00D19E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B5592FA1EE05EBD00D19E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B5592FF1EE05EBD00D19E1D /* VendingMachineKataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineKataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B5593031EE05EBD00D19E1D /* VendingMachineKataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VendingMachineKataTests.m; sourceTree = "<group>"; };
+		0B5593051EE05EBD00D19E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B55930A1EE05EBD00D19E1D /* VendingMachineKataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineKataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B55930E1EE05EBD00D19E1D /* VendingMachineKataUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VendingMachineKataUITests.m; sourceTree = "<group>"; };
+		0B5593101EE05EBD00D19E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B5592E31EE05EBC00D19E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B5592FC1EE05EBD00D19E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B5593071EE05EBD00D19E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B5592DD1EE05EBC00D19E1D = {
+			isa = PBXGroup;
+			children = (
+				0B5592E81EE05EBC00D19E1D /* VendingMachineKata */,
+				0B5593021EE05EBD00D19E1D /* VendingMachineKataTests */,
+				0B55930D1EE05EBD00D19E1D /* VendingMachineKataUITests */,
+				0B5592E71EE05EBC00D19E1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B5592E71EE05EBC00D19E1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B5592E61EE05EBC00D19E1D /* VendingMachineKata.app */,
+				0B5592FF1EE05EBD00D19E1D /* VendingMachineKataTests.xctest */,
+				0B55930A1EE05EBD00D19E1D /* VendingMachineKataUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B5592E81EE05EBC00D19E1D /* VendingMachineKata */ = {
+			isa = PBXGroup;
+			children = (
+				0B5592EC1EE05EBC00D19E1D /* AppDelegate.h */,
+				0B5592ED1EE05EBC00D19E1D /* AppDelegate.m */,
+				0B5592EF1EE05EBC00D19E1D /* ViewController.h */,
+				0B5592F01EE05EBC00D19E1D /* ViewController.m */,
+				0B5592F21EE05EBC00D19E1D /* Main.storyboard */,
+				0B5592F51EE05EBC00D19E1D /* Assets.xcassets */,
+				0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */,
+				0B5592FA1EE05EBD00D19E1D /* Info.plist */,
+				0B5592E91EE05EBC00D19E1D /* Supporting Files */,
+			);
+			path = VendingMachineKata;
+			sourceTree = "<group>";
+		};
+		0B5592E91EE05EBC00D19E1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B5592EA1EE05EBC00D19E1D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0B5593021EE05EBD00D19E1D /* VendingMachineKataTests */ = {
+			isa = PBXGroup;
+			children = (
+				0B5593031EE05EBD00D19E1D /* VendingMachineKataTests.m */,
+				0B5593051EE05EBD00D19E1D /* Info.plist */,
+			);
+			path = VendingMachineKataTests;
+			sourceTree = "<group>";
+		};
+		0B55930D1EE05EBD00D19E1D /* VendingMachineKataUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0B55930E1EE05EBD00D19E1D /* VendingMachineKataUITests.m */,
+				0B5593101EE05EBD00D19E1D /* Info.plist */,
+			);
+			path = VendingMachineKataUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B5592E51EE05EBC00D19E1D /* VendingMachineKata */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B5593131EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKata" */;
+			buildPhases = (
+				0B5592E21EE05EBC00D19E1D /* Sources */,
+				0B5592E31EE05EBC00D19E1D /* Frameworks */,
+				0B5592E41EE05EBC00D19E1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VendingMachineKata;
+			productName = VendingMachineKata;
+			productReference = 0B5592E61EE05EBC00D19E1D /* VendingMachineKata.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0B5592FE1EE05EBD00D19E1D /* VendingMachineKataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B5593161EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKataTests" */;
+			buildPhases = (
+				0B5592FB1EE05EBD00D19E1D /* Sources */,
+				0B5592FC1EE05EBD00D19E1D /* Frameworks */,
+				0B5592FD1EE05EBD00D19E1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B5593011EE05EBD00D19E1D /* PBXTargetDependency */,
+			);
+			name = VendingMachineKataTests;
+			productName = VendingMachineKataTests;
+			productReference = 0B5592FF1EE05EBD00D19E1D /* VendingMachineKataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0B5593091EE05EBD00D19E1D /* VendingMachineKataUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B5593191EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKataUITests" */;
+			buildPhases = (
+				0B5593061EE05EBD00D19E1D /* Sources */,
+				0B5593071EE05EBD00D19E1D /* Frameworks */,
+				0B5593081EE05EBD00D19E1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B55930C1EE05EBD00D19E1D /* PBXTargetDependency */,
+			);
+			name = VendingMachineKataUITests;
+			productName = VendingMachineKataUITests;
+			productReference = 0B55930A1EE05EBD00D19E1D /* VendingMachineKataUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B5592DE1EE05EBC00D19E1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = AccendantC;
+				TargetAttributes = {
+					0B5592E51EE05EBC00D19E1D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CEMFTF7MRA;
+						ProvisioningStyle = Automatic;
+					};
+					0B5592FE1EE05EBD00D19E1D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CEMFTF7MRA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0B5592E51EE05EBC00D19E1D;
+					};
+					0B5593091EE05EBD00D19E1D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CEMFTF7MRA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0B5592E51EE05EBC00D19E1D;
+					};
+				};
+			};
+			buildConfigurationList = 0B5592E11EE05EBC00D19E1D /* Build configuration list for PBXProject "VendingMachineKata" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B5592DD1EE05EBC00D19E1D;
+			productRefGroup = 0B5592E71EE05EBC00D19E1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B5592E51EE05EBC00D19E1D /* VendingMachineKata */,
+				0B5592FE1EE05EBD00D19E1D /* VendingMachineKataTests */,
+				0B5593091EE05EBD00D19E1D /* VendingMachineKataUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B5592E41EE05EBC00D19E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B5592F91EE05EBD00D19E1D /* LaunchScreen.storyboard in Resources */,
+				0B5592F61EE05EBC00D19E1D /* Assets.xcassets in Resources */,
+				0B5592F41EE05EBC00D19E1D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B5592FD1EE05EBD00D19E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B5593081EE05EBD00D19E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B5592E21EE05EBC00D19E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B5592F11EE05EBC00D19E1D /* ViewController.m in Sources */,
+				0B5592EE1EE05EBC00D19E1D /* AppDelegate.m in Sources */,
+				0B5592EB1EE05EBC00D19E1D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B5592FB1EE05EBD00D19E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B5593041EE05EBD00D19E1D /* VendingMachineKataTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B5593061EE05EBD00D19E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B55930F1EE05EBD00D19E1D /* VendingMachineKataUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B5593011EE05EBD00D19E1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B5592E51EE05EBC00D19E1D /* VendingMachineKata */;
+			targetProxy = 0B5593001EE05EBD00D19E1D /* PBXContainerItemProxy */;
+		};
+		0B55930C1EE05EBD00D19E1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B5592E51EE05EBC00D19E1D /* VendingMachineKata */;
+			targetProxy = 0B55930B1EE05EBD00D19E1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0B5592F21EE05EBC00D19E1D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B5592F31EE05EBC00D19E1D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B5592F81EE05EBD00D19E1D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0B5593111EE05EBD00D19E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0B5593121EE05EBD00D19E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B5593141EE05EBD00D19E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CEMFTF7MRA;
+				INFOPLIST_FILE = VendingMachineKata/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.accendantc.VendingMachineKata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0B5593151EE05EBD00D19E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CEMFTF7MRA;
+				INFOPLIST_FILE = VendingMachineKata/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.accendantc.VendingMachineKata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0B5593171EE05EBD00D19E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CEMFTF7MRA;
+				INFOPLIST_FILE = VendingMachineKataTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.accendantc.VendingMachineKataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineKata.app/VendingMachineKata";
+			};
+			name = Debug;
+		};
+		0B5593181EE05EBD00D19E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CEMFTF7MRA;
+				INFOPLIST_FILE = VendingMachineKataTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.accendantc.VendingMachineKataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VendingMachineKata.app/VendingMachineKata";
+			};
+			name = Release;
+		};
+		0B55931A1EE05EBD00D19E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = CEMFTF7MRA;
+				INFOPLIST_FILE = VendingMachineKataUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.accendantc.VendingMachineKataUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VendingMachineKata;
+			};
+			name = Debug;
+		};
+		0B55931B1EE05EBD00D19E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = CEMFTF7MRA;
+				INFOPLIST_FILE = VendingMachineKataUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.accendantc.VendingMachineKataUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VendingMachineKata;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B5592E11EE05EBC00D19E1D /* Build configuration list for PBXProject "VendingMachineKata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B5593111EE05EBD00D19E1D /* Debug */,
+				0B5593121EE05EBD00D19E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B5593131EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B5593141EE05EBD00D19E1D /* Debug */,
+				0B5593151EE05EBD00D19E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0B5593161EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B5593171EE05EBD00D19E1D /* Debug */,
+				0B5593181EE05EBD00D19E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0B5593191EE05EBD00D19E1D /* Build configuration list for PBXNativeTarget "VendingMachineKataUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B55931A1EE05EBD00D19E1D /* Debug */,
+				0B55931B1EE05EBD00D19E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B5592DE1EE05EBC00D19E1D /* Project object */;
+}
