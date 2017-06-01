@@ -11,13 +11,16 @@
 
 @interface CoinManagerTests : XCTestCase
 
+@property (nonatomic, strong) CoinManager *coinManager;
+
 @end
 
 @implementation CoinManagerTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    self.coinManager = [[CoinManager alloc] init];
 }
 
 - (void)tearDown {
@@ -26,12 +29,26 @@
 }
 
 - (void)testIfPennyIsValid {
-    CoinManager *coinManager = [[CoinManager alloc] init];
-    BOOL pennyIsValid = [coinManager isValidCoin:Penny];
-    XCTAssertFalse(pennyIsValid);
+    XCTAssertFalse([self.coinManager isValidCoin:Penny]);
     
 }
 
+- (void)testIfNickelIsValid {
+    XCTAssertTrue([self.coinManager isValidCoin:Nickel]);
+    
+}
+
+- (void)testIfDimeIsValid {
+    XCTAssertTrue([self.coinManager isValidCoin:Dime]);
+    
+}
+
+- (void)testIfQuarterIsValid {
+    XCTAssertTrue([self.coinManager isValidCoin:Quarter]);
+}
+
+
+/*
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -43,5 +60,6 @@
         // Put the code you want to measure the time of here.
     }];
 }
+*/
 
 @end
