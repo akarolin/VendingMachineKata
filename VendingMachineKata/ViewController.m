@@ -9,6 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *AmountInputLabel;
+@property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
 
 @end
 
@@ -25,5 +27,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)AddMoney:(id)sender {
+}
+- (IBAction)TakeChange:(id)sender {
+}
 
 @end
