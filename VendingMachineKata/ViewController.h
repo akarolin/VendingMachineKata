@@ -14,14 +14,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *AmountInputLabel;
 @property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
 
+@property NSTimeInterval secondsOfDelay;
+
 - (IBAction)takeChange:(id)sender;
+- (IBAction)buyChips:(id)sender;
+- (IBAction)buyCola:(id)sender;
+- (IBAction)buyCandy:(id)sender;
 
 - (void)insertCoin:(CoinType) coin;
 - (void)buyProduct:(Product *)product;
 
 @end
 
-extern NSString * const THANK_YOU;
-extern NSString * const INSERT_COIN;
-extern NSString * const PRICE;
+NSString * const THANK_YOU = @"THANK YOU";
+NSString * const INSERT_COIN = @"INSERT COIN";
+NSString * const PRICE = @"PRICE:";
+
 

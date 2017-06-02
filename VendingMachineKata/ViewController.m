@@ -20,17 +20,15 @@
 
 @implementation ViewController
 
-NSString * const THANK_YOU = @"THANK YOU";
-NSString * const INSERT_COIN = @"INSERT COIN";
-NSString * const PRICE = @"PRICE:";
-
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.vendingMachineManager = [[VendingMachineManager alloc] init];
+    self.secondsOfDelay = 1.0;
     
     self.chips = [[Product alloc] initProductName:@"Chips" withPrice:50];
-    self.cola = [[Product alloc] initProductName:@"Cola" withPrice:50];
-    self.candy = [[Product alloc] initProductName:@"Candy" withPrice:50];
+    self.cola =  [[Product alloc] initProductName:@"Cola" withPrice:100];
+    self.candy = [[Product alloc] initProductName:@"Candy" withPrice:65];
 }
 
 
@@ -38,6 +36,8 @@ NSString * const PRICE = @"PRICE:";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UI Actions
 
 - (IBAction)AddMoney:(id)sender {
     UIAlertController * view=   [UIAlertController
@@ -96,6 +96,19 @@ NSString * const PRICE = @"PRICE:";
     [self showAmountOfChange];
 }
 
+- (IBAction)buyChips:(id)sender {
+    [self buyProduct:self.chips];
+}
+
+- (IBAction)buyCola:(id)sender {
+    [self buyProduct:self.cola];
+}
+
+- (IBAction)buyCandy:(id)sender {
+    [self buyProduct:self.candy];
+}
+
+#pragma mark - supporting functions
 
 - (void)insertCoin:(CoinType) coin {
     [self.vendingMachineManager insertCoin:coin];
@@ -135,18 +148,6 @@ NSString * const PRICE = @"PRICE:";
     } else {
         [self needMoreMoney:product];
     }
+    [self performSelector:@selector(showAmountInput) withObject:nil afterDelay:self.secondsOfDelay];
 }
-
-- (void)selectChips {
-    [self buyProduct:self.chips];
-}
-
-- (void)selectCola {
-    [self buyProduct:self.cola];
-}
-
-- (void)selectCandy {
-    [self buyProduct:self.candy];
-}
-
 @end
