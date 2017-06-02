@@ -28,22 +28,22 @@
 - (void)testValidCoin {
     VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
     [vendingMachineManager insertCoin:Nickel];
-    XCTAssertTrue([vendingMachineManager numberOfCoinsInput] == 1);
+    XCTAssertTrue([vendingMachineManager pennyAmountOfCoinsInput] == 5);
 
     [vendingMachineManager insertCoin:Dime];
-    XCTAssertTrue([vendingMachineManager numberOfCoinsInput] == 2);
+    XCTAssertTrue([vendingMachineManager pennyAmountOfCoinsInput] == 15);
 
     [vendingMachineManager insertCoin:Quarter];
-    XCTAssertTrue([vendingMachineManager numberOfCoinsInput] == 3);
+    XCTAssertTrue([vendingMachineManager pennyAmountOfCoinsInput] == 40);
 }
 
 - (void)testInvalidCoin {
     VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
     [vendingMachineManager insertCoin:Penny];
-    XCTAssertTrue([vendingMachineManager numberOfCoinsReturned] == 1);
+    XCTAssertTrue([vendingMachineManager pennyAmountOfCoinsReturned] == 1);
     
     [vendingMachineManager insertCoin:Penny];
-    XCTAssertTrue([vendingMachineManager numberOfCoinsReturned] == 2);
+    XCTAssertTrue([vendingMachineManager pennyAmountOfCoinsReturned] == 2);
 
 }
 
@@ -116,4 +116,17 @@
 
 }
 
+- (void)testCanBuyProduct {
+    VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
+    Product *product = [[Product alloc] initProductName:@"Chips" withPrice:50];
+
+    XCTAssertFalse([vendingMachineManager canBuyProduct:product]);
+    [vendingMachineManager insertCoin:Quarter];
+    XCTAssertFalse([vendingMachineManager canBuyProduct:product]);
+    [vendingMachineManager insertCoin:Quarter];
+    XCTAssertTrue([vendingMachineManager canBuyProduct:product]);
+    [vendingMachineManager insertCoin:Quarter];
+    XCTAssertTrue([vendingMachineManager canBuyProduct:product]);
+
+}
 @end

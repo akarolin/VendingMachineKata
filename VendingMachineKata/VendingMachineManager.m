@@ -7,27 +7,14 @@
 //
 
 #import "VendingMachineManager.h"
-
-@interface CoinObject : NSObject
-@property CoinType coin;
-@end
-
-@implementation CoinObject
-
-- (id)initWithCoin:(CoinType) coin {
-   if (self = [super init]) {
-       _coin = coin;
-    }
-    return self;
-}
-
-@end
+#import "Product.h"
 
 @interface VendingMachineManager()
 
-@property (strong, nonatomic) NSMutableArray *coinsInput;
-@property (strong, nonatomic) NSMutableArray *coinsReturned;
 @property (strong, nonatomic) CoinManager *coinManager;
+
+@property NSUInteger totalAmountInput;
+@property NSUInteger totalAmountOfChange;
 
 @end
 
@@ -35,50 +22,39 @@
 
 - (id)init {
     if (self = [super init]) {
-        _coinsInput = [[NSMutableArray alloc] init];
-        _coinsReturned = [[NSMutableArray alloc] init];
         _coinManager = [[CoinManager alloc] init];
+        _totalAmountInput = 0;
+        _totalAmountOfChange = 0;
     }
     return self;
 }
 
 - (void)insertCoin:(CoinType) coin {
-    CoinObject *coinObj = [[CoinObject alloc] initWithCoin:coin];
     if ([self.coinManager isValidCoin:(coin)]) {
-        [self.coinsInput addObject:coinObj];
+        self.totalAmountInput = [self.coinManager addCoinToAmount:self.totalAmountInput coin:coin];
     } else {
-        [self.coinsReturned addObject:coinObj];
+        self.totalAmountOfChange = [self.coinManager addCoinToAmount:self.totalAmountOfChange coin:coin];
     }
-}
-
-- (NSUInteger)numberOfCoinsInput {
-    return [self.coinsInput count];
-}
-
-- (NSUInteger)numberOfCoinsReturned {
-    return [self.coinsReturned count];
 }
 
 - (NSUInteger)pennyAmountOfCoinsInput {
-    NSUInteger total = 0;
-    for (CoinObject *coinObj in self.coinsInput) {
-        total = [self.coinManager addCoinToAmount:total coin:coinObj.coin];
-    }
-    return total;
+    return self.totalAmountInput;
 }
 
 - (NSUInteger)pennyAmountOfCoinsReturned {
-    NSUInteger total = 0;
-    for (CoinObject *coinObj in self.coinsReturned) {
-        total = [self.coinManager addCoinToAmount:total coin:coinObj.coin];
-    }
-    return total;
+    return self.totalAmountOfChange;
 }
 
 - (NSUInteger)takeChange {
-    NSUInteger change = [self pennyAmountOfCoinsReturned];
-    [self.coinsReturned removeAllObjects];
+    NSUInteger change = self.totalAmountOfChange;
+    self.totalAmountOfChange = 0;
     return change;
 }
+
+
+- (BOOL)canBuyProduct:(Product *)product {
+    return self.totalAmountInput >= product.price;
+}
+
 
 @end

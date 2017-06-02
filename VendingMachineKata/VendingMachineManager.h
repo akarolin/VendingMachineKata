@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "CoinManager.h"
+#import "Product.h"
 
 @interface VendingMachineManager : NSObject
 
 - (void)insertCoin:(CoinType) coin;
-- (NSUInteger)numberOfCoinsInput;
-- (NSUInteger)numberOfCoinsReturned;
+//- (NSUInteger)numberOfCoinsInput;
+//- (NSUInteger)numberOfCoinsReturned;
 - (NSUInteger)pennyAmountOfCoinsInput;
 - (NSUInteger)pennyAmountOfCoinsReturned;
 - (NSUInteger)takeChange;
+- (BOOL)canBuyProduct:(Product *)product;
 
 @end

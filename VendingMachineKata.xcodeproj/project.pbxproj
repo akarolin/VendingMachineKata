@@ -12,6 +12,7 @@
 		0B1A974E1EE0924E00DD1846 /* VendingMachineManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1A974D1EE0924E00DD1846 /* VendingMachineManagerTests.m */; };
 		0B1A97501EE0B2FD00DD1846 /* ViewControllerUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1A974F1EE0B2FD00DD1846 /* ViewControllerUnitTests.m */; };
 		0B1A97521EE18BE200DD1846 /* ViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1A97511EE18BE200DD1846 /* ViewControllerUITests.m */; };
+		0B1A97551EE1B86D00DD1846 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1A97541EE1B86D00DD1846 /* Product.m */; };
 		0B5592EB1EE05EBC00D19E1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592EA1EE05EBC00D19E1D /* main.m */; };
 		0B5592EE1EE05EBC00D19E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592ED1EE05EBC00D19E1D /* AppDelegate.m */; };
 		0B5592F11EE05EBC00D19E1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5592F01EE05EBC00D19E1D /* ViewController.m */; };
@@ -40,11 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B1A974A1EE089CE00DD1846 /* VendingMachineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VendingMachineManager.h; path = VendingMachineKata/VendingMachineManager.h; sourceTree = "<group>"; };
-		0B1A974B1EE089CE00DD1846 /* VendingMachineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VendingMachineManager.m; path = VendingMachineKata/VendingMachineManager.m; sourceTree = "<group>"; };
+		0B1A974A1EE089CE00DD1846 /* VendingMachineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendingMachineManager.h; sourceTree = "<group>"; };
+		0B1A974B1EE089CE00DD1846 /* VendingMachineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingMachineManager.m; sourceTree = "<group>"; };
 		0B1A974D1EE0924E00DD1846 /* VendingMachineManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingMachineManagerTests.m; sourceTree = "<group>"; };
 		0B1A974F1EE0B2FD00DD1846 /* ViewControllerUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerUnitTests.m; sourceTree = "<group>"; };
 		0B1A97511EE18BE200DD1846 /* ViewControllerUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerUITests.m; sourceTree = "<group>"; };
+		0B1A97531EE1B86D00DD1846 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		0B1A97541EE1B86D00DD1846 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		0B5592E61EE05EBC00D19E1D /* VendingMachineKata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineKata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5592EA1EE05EBC00D19E1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0B5592EC1EE05EBC00D19E1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,8 +95,6 @@
 		0B5592DD1EE05EBC00D19E1D = {
 			isa = PBXGroup;
 			children = (
-				0B1A974A1EE089CE00DD1846 /* VendingMachineManager.h */,
-				0B1A974B1EE089CE00DD1846 /* VendingMachineManager.m */,
 				0B5592E81EE05EBC00D19E1D /* VendingMachineKata */,
 				0B5593021EE05EBD00D19E1D /* VendingMachineKataTests */,
 				0B55930D1EE05EBD00D19E1D /* VendingMachineKataUITests */,
@@ -114,8 +115,12 @@
 		0B5592E81EE05EBC00D19E1D /* VendingMachineKata */ = {
 			isa = PBXGroup;
 			children = (
+				0B1A97531EE1B86D00DD1846 /* Product.h */,
+				0B1A97541EE1B86D00DD1846 /* Product.m */,
 				0B55931E1EE07C4000D19E1D /* CoinManager.h */,
 				0B55931F1EE07C4000D19E1D /* CoinManager.m */,
+				0B1A974A1EE089CE00DD1846 /* VendingMachineManager.h */,
+				0B1A974B1EE089CE00DD1846 /* VendingMachineManager.m */,
 				0B5592EC1EE05EBC00D19E1D /* AppDelegate.h */,
 				0B5592ED1EE05EBC00D19E1D /* AppDelegate.m */,
 				0B5592EF1EE05EBC00D19E1D /* ViewController.h */,
@@ -296,6 +301,7 @@
 				0B5593201EE07C4000D19E1D /* CoinManager.m in Sources */,
 				0B5592F11EE05EBC00D19E1D /* ViewController.m in Sources */,
 				0B1A974C1EE089CE00DD1846 /* VendingMachineManager.m in Sources */,
+				0B1A97551EE1B86D00DD1846 /* Product.m in Sources */,
 				0B5592EE1EE05EBC00D19E1D /* AppDelegate.m in Sources */,
 				0B5592EB1EE05EBC00D19E1D /* main.m in Sources */,
 			);
