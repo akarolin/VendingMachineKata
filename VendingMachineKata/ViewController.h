@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CoinManager.h"
+#import "VendingMachineManager.h"
 
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *AmountInputLabel;
 @property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
 
-- (void)insertCoin:(CoinType) coin;
 - (IBAction)takeChange:(id)sender;
 
+- (void)insertCoin:(CoinType) coin;
+- (void)buyProduct:(Product *)product;
+
 @end
+
+extern NSString * const THANK_YOU;
+extern NSString * const INSERT_COIN;
+extern NSString * const PRICE;
 

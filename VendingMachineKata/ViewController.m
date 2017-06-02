@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "VendingMachineManager.h"
 
 @interface ViewController ()
 
@@ -17,10 +16,13 @@
 @property (strong, nonatomic) Product *cola;
 @property (strong, nonatomic) Product *candy;
 
-
 @end
 
 @implementation ViewController
+
+NSString * const THANK_YOU = @"THANK YOU";
+NSString * const INSERT_COIN = @"INSERT COIN";
+NSString * const PRICE = @"PRICE:";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -101,17 +103,17 @@
     [self showAmountOfChange];
 }
 
-- (void)needMoreMoney {
-    // show thank you
+- (void)needMoreMoney:(Product *)product {
+    [self showProductPrice:product];
 }
 
 - (void)successfulPurchase {
-    // show price
+    [self showThankYou];
 }
 
 - (void)showAmountInput {
     NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
-    self.AmountInputLabel.text = total == 0 ? @"INSERT COIN" : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
+    self.AmountInputLabel.text = total == 0 ? INSERT_COIN : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
 }
 
 - (void)showAmountOfChange {
@@ -119,20 +121,32 @@
     self.AmountOfChangeLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",change/100,change%100];
 }
 
-- (void)selectChips {
-    if ([self.vendingMachineManager canBuyProduct:self.chips]) {
+- (void)showProductPrice:(Product *)product {
+    self.AmountInputLabel.text = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,product.price/100,product.price%100];
+}
+
+- (void)showThankYou {
+    self.AmountInputLabel.text = THANK_YOU;
+}
+
+- (void)buyProduct:(Product *)product {
+    if ([self.vendingMachineManager canBuyProduct:product]) {
         [self successfulPurchase];
     } else {
-        [self needMoreMoney];
+        [self needMoreMoney:product];
     }
 }
 
+- (void)selectChips {
+    [self buyProduct:self.chips];
+}
+
 - (void)selectCola {
-    
+    [self buyProduct:self.cola];
 }
 
 - (void)selectCandy {
-    
+    [self buyProduct:self.candy];
 }
 
 @end
