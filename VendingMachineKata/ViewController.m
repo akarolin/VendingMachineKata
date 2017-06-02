@@ -38,7 +38,7 @@
                             style:UIAlertActionStyleDefault
                             handler:^(UIAlertAction * action)
                             {
-                                //Do some thing here
+                                [self insertCoin:Penny];
                                 [view dismissViewControllerAnimated:YES completion:nil];
                                 
                             }];
@@ -47,6 +47,7 @@
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
+                                 [self insertCoin:Nickel];
                                  [view dismissViewControllerAnimated:YES completion:nil];
                                  
                              }];
@@ -56,7 +57,7 @@
                             style:UIAlertActionStyleDefault
                             handler:^(UIAlertAction * action)
                             {
-                                //Do some thing here
+                                [self insertCoin:Dime];
                                 [view dismissViewControllerAnimated:YES completion:nil];
                                 
                             }];
@@ -65,6 +66,7 @@
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
+                                 [self insertCoin:Quarter];
                                  [view dismissViewControllerAnimated:YES completion:nil];
                                  
                              }];
@@ -84,7 +86,7 @@
 - (void)insertCoin:(CoinType) coin {
     [self.vendingMachineManager insertCoin:coin];
     NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
-    self.AmountInputLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
+    self.AmountInputLabel.text = total == 0 ? @"INSERT COIN" : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
     NSUInteger change = [self.vendingMachineManager pennyAmountOfCoinsReturned];
     self.AmountOfChangeLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",change/100,change%100];
 }

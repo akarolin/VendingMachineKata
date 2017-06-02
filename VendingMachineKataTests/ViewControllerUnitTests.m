@@ -33,6 +33,8 @@
 
 - (void)testAmountInputLabel {
     XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"INSERT COIN"]);
+    [self.viewController insertCoin:Penny];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"INSERT COIN"]);
     [self.viewController insertCoin:Nickel];
     XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:@"$0.05"]);
     [self.viewController insertCoin:Quarter];
