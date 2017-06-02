@@ -87,49 +87,15 @@
 }
 
 -(void)testBuyChips {
-    
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    XCUIElement *buyChipsButton = app.buttons[@"Buy Chips"];
-    XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
-    NSString *priceString = [NSString stringWithFormat:@"%@ $0.50",PRICE];
-    
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
-    [buyChipsButton tap];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:priceString]);
-    
-    // Wait for label to return to INSERT_COIN
-    XCUIElement *label = app.staticTexts[INSERT_COIN];
-    NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
-    
-    [app.buttons[@"Add Money"] tap];
-    [app.sheets[@"Insert Coins"].buttons[@"Quarter"] tap];
-    [buyChipsButton tap];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:priceString]);
-
-    // Wait for label to return to amount inserted
-    label = app.staticTexts[@"$0.25"];
-    [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:@"$0.25"]);
-    
-    [app.buttons[@"Add Money"] tap];
-    [app.sheets[@"Insert Coins"].buttons[@"Quarter"] tap];
-    [buyChipsButton tap];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:THANK_YOU]);
-
-    // Wait for label to return to INSERT_COIN
-    label = app.staticTexts[INSERT_COIN];
-    [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
-
+    [self executePurchase:@"Buy Chips" productPrice:CHIP_PRICE];
 }
 
 -(void)testBuyCola {
     [self executePurchase:@"Buy Cola" productPrice:COLA_PRICE];
+}
+
+-(void)testBuyCandy {
+    [self executePurchase:@"Buy Candy" productPrice:CANDY_PRICE];
 }
 
 -(void)executePurchase:(NSString *)buttonName productPrice:(NSUInteger)price {
