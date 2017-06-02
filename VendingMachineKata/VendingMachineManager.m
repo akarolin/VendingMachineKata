@@ -56,5 +56,8 @@
     return self.totalAmountInput >= product.price;
 }
 
+- (void)completeTransaction {
+    self.totalAmountInput = 0;
+}
 
 @end

@@ -17,5 +17,6 @@
 - (NSUInteger)pennyAmountOfCoinsReturned;
 - (NSUInteger)takeChange;
 - (BOOL)canBuyProduct:(Product *)product;
+- (void)completeTransaction;
 
 @end

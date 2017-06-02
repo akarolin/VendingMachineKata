@@ -128,4 +128,47 @@
 
 }
 
+-(void)testBuyCola {
+    [self executePurchase:@"Buy Cola" productPrice:COLA_PRICE];
+}
+
+-(void)executePurchase:(NSString *)buttonName productPrice:(NSUInteger)price {
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *buyButton = app.buttons[buttonName];
+    XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
+    NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
+
+    NSString *priceString = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,price/100, price%100];
+    NSUInteger amountInserted = 0;
+    NSString * amountInsertedString = INSERT_COIN;
+
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:amountInsertedString]);
+
+    while (amountInserted < price) {
+        [buyButton tap];
+        XCTAssertTrue([insertCoinLabel.label isEqualToString:priceString]);
+        
+        // Wait for label to return to showing the current amount
+        XCUIElement *label = app.staticTexts[amountInsertedString];
+        [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
+        [self waitForExpectationsWithTimeout:5 handler:nil];
+        XCTAssertTrue([insertCoinLabel.label isEqualToString:amountInsertedString]);
+        
+        [app.buttons[@"Add Money"] tap];
+        [app.sheets[@"Insert Coins"].buttons[@"Quarter"] tap];
+        amountInserted += 25;
+        amountInsertedString = [NSString stringWithFormat:@"$%lu.%02lu",amountInserted/100, amountInserted%100];
+    }
+
+    [buyButton tap];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:THANK_YOU]);
+
+    // Wait for label to return to INSERT_COIN
+    XCUIElement *label = app.staticTexts[INSERT_COIN];
+    [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+}
+
+
 @end

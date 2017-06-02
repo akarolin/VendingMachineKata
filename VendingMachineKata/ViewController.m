@@ -26,9 +26,9 @@
     self.vendingMachineManager = [[VendingMachineManager alloc] init];
     self.secondsOfDelay = 1.0;
     
-    self.chips = [[Product alloc] initProductName:@"Chips" withPrice:50];
-    self.cola =  [[Product alloc] initProductName:@"Cola" withPrice:100];
-    self.candy = [[Product alloc] initProductName:@"Candy" withPrice:65];
+    self.chips = [[Product alloc] initProductName:@"Chips" withPrice:CHIP_PRICE];
+    self.cola =  [[Product alloc] initProductName:@"Cola" withPrice:COLA_PRICE];
+    self.candy = [[Product alloc] initProductName:@"Candy" withPrice:CANDY_PRICE];
 }
 
 
@@ -121,7 +121,8 @@
 }
 
 - (void)successfulPurchase {
-    [self showThankYou];
+    [self.vendingMachineManager completeTransaction];
+    [self showAmountInput];
 }
 
 - (void)showAmountInput {
@@ -144,10 +145,11 @@
 
 - (void)buyProduct:(Product *)product {
     if ([self.vendingMachineManager canBuyProduct:product]) {
-        [self successfulPurchase];
+        [self showThankYou];
+        [self performSelector:@selector(successfulPurchase) withObject:nil afterDelay:self.secondsOfDelay];
     } else {
         [self needMoreMoney:product];
+        [self performSelector:@selector(showAmountInput) withObject:nil afterDelay:self.secondsOfDelay];
     }
-    [self performSelector:@selector(showAmountInput) withObject:nil afterDelay:self.secondsOfDelay];
 }
 @end

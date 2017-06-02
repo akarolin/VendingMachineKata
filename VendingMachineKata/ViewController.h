@@ -26,8 +26,11 @@
 
 @end
 
+// UI Testing Helpers
 NSString * const THANK_YOU = @"THANK YOU";
 NSString * const INSERT_COIN = @"INSERT COIN";
 NSString * const PRICE = @"PRICE:";
-
+NSUInteger const CHIP_PRICE = 50;
+NSUInteger const COLA_PRICE = 100;
+NSUInteger const CANDY_PRICE = 65;
 
