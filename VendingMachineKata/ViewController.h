@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
 
 - (void)insertCoin:(CoinType) coin;
+- (IBAction)takeChange:(id)sender;
 
 @end
 

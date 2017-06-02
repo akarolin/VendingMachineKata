@@ -57,7 +57,7 @@
                                                 <rect key="frame" x="13" y="20.5" width="90" height="30"/>
                                                 <state key="normal" title="Take Change"/>
                                                 <connections>
-                                                    <action selector="TakeChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vtq-77-RaL"/>
+                                                    <action selector="takeChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qpu-5i-LHM"/>
                                                 </connections>
                                             </button>
                                         </subviews>

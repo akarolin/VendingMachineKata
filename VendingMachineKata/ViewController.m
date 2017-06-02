@@ -79,7 +79,9 @@
     [self presentViewController:view animated:YES completion:nil];
 }
 
-- (IBAction)TakeChange:(id)sender {
+- (IBAction)takeChange:(id)sender {
+    [self.vendingMachineManager takeChange];
+    self.AmountOfChangeLabel.text = @"$0.00";
 }
 
 

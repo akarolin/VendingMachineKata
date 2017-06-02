@@ -16,5 +16,6 @@
 - (NSUInteger)numberOfCoinsReturned;
 - (NSUInteger)pennyAmountOfCoinsInput;
 - (NSUInteger)pennyAmountOfCoinsReturned;
+- (NSUInteger)takeChange;
 
 @end

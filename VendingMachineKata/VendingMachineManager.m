@@ -75,4 +75,10 @@
     return total;
 }
 
+- (NSUInteger)takeChange {
+    NSUInteger change = [self pennyAmountOfCoinsReturned];
+    [self.coinsReturned removeAllObjects];
+    return change;
+}
+
 @end

@@ -65,5 +65,24 @@
     XCTAssertTrue([changeLabel.label isEqualToString:@"$0.01"]);
 }
 
+-(void)testTakeChange {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *addMoneyButton = app.buttons[@"Add Money"];
+    [addMoneyButton tap];
+    
+    XCUIElement *pennyButton = app.sheets[@"Insert Coins"].buttons[@"Penny"];
+    [pennyButton tap];
+    [addMoneyButton tap];
+    [pennyButton tap];
+    [addMoneyButton tap];
+    [pennyButton tap];
+    
+    XCUIElement *changeLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"Change"];
+    XCTAssertTrue([changeLabel.label isEqualToString:@"$0.03"]);
+    
+    [app.buttons[@"Take Change"] tap];
+    XCTAssertTrue([changeLabel.label isEqualToString:@"$0.00"]);
+}
 
 @end

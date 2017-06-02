@@ -97,4 +97,23 @@
     XCTAssertTrue(total == 3);
 }
 
+- (void)testTakeChange {
+    VendingMachineManager *vendingMachineManager = [[VendingMachineManager alloc] init];
+    NSUInteger total;
+    
+    [vendingMachineManager insertCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
+    [vendingMachineManager insertCoin:Penny];
+    
+    total = [vendingMachineManager pennyAmountOfCoinsReturned];
+    XCTAssertTrue(total == 3);
+
+    total = [vendingMachineManager takeChange];
+    XCTAssertTrue(total == 3);
+
+    total = [vendingMachineManager pennyAmountOfCoinsReturned];
+    XCTAssertTrue(total == 0);
+
+}
+
 @end
