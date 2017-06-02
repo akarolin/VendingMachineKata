@@ -12,6 +12,12 @@
 @interface ViewController ()
 
 @property (strong, nonatomic) VendingMachineManager *vendingMachineManager;
+
+@property (strong, nonatomic) Product *chips;
+@property (strong, nonatomic) Product *cola;
+@property (strong, nonatomic) Product *candy;
+
+
 @end
 
 @implementation ViewController
@@ -19,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.vendingMachineManager = [[VendingMachineManager alloc] init];
+    
+    self.chips = [[Product alloc] initProductName:@"Chips" withPrice:50];
+    self.cola = [[Product alloc] initProductName:@"Cola" withPrice:50];
+    self.candy = [[Product alloc] initProductName:@"Candy" withPrice:50];
 }
 
 
@@ -81,16 +91,48 @@
 
 - (IBAction)takeChange:(id)sender {
     [self.vendingMachineManager takeChange];
-    self.AmountOfChangeLabel.text = @"$0.00";
+    [self showAmountOfChange];
 }
 
 
 - (void)insertCoin:(CoinType) coin {
     [self.vendingMachineManager insertCoin:coin];
+    [self showAmountInput];
+    [self showAmountOfChange];
+}
+
+- (void)needMoreMoney {
+    // show thank you
+}
+
+- (void)successfulPurchase {
+    // show price
+}
+
+- (void)showAmountInput {
     NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
     self.AmountInputLabel.text = total == 0 ? @"INSERT COIN" : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
+}
+
+- (void)showAmountOfChange {
     NSUInteger change = [self.vendingMachineManager pennyAmountOfCoinsReturned];
     self.AmountOfChangeLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",change/100,change%100];
+}
+
+- (void)selectChips {
+    if ([self.vendingMachineManager canBuyProduct:self.chips]) {
+        [self successfulPurchase];
+    } else {
+        [self needMoreMoney];
+    }
+}
+
+- (void)selectCola {
+    
+}
+
+- (void)selectCandy {
+    
 }
 
 @end
