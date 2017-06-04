@@ -143,5 +143,24 @@
     XCTAssertTrue([changeLabel.label isEqualToString:amountOfChange]);
 }
 
+-(void)testCoinReturn {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
+    XCUIElement *changeLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"Change"];
+
+    XCUIElement *addMoneyButton = app.buttons[@"Add Money"];
+    [addMoneyButton tap];
+    
+    XCUIElement *insertCoinsSheet = app.sheets[@"Insert Coins"];
+    [insertCoinsSheet.buttons[@"Nickel"] tap];
+    [addMoneyButton tap];
+    [insertCoinsSheet.buttons[@"Dime"] tap];
+    [app.buttons[@"Coin Return"] tap];
+
+    XCTAssertTrue([changeLabel.label isEqualToString:@"$0.15"]);
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+}
+
 
 @end

@@ -22,10 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="C0G-Hb-OUY">
-                                <rect key="frame" x="62.5" y="308.5" width="250" height="50.5"/>
+                                <rect key="frame" x="62.5" y="293.5" width="250" height="80.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CZD-lk-RTi">
-                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSERT COIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45C-PW-s75">
                                                 <rect key="frame" x="15" y="0.0" width="103" height="20.5"/>
@@ -41,20 +41,27 @@
                                                     <action selector="AddMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ugC-Nm-IGY"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="An7-Oz-JIW">
+                                                <rect key="frame" x="26" y="50.5" width="81" height="30"/>
+                                                <state key="normal" title="Coin Return"/>
+                                                <connections>
+                                                    <action selector="coinReturn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U6D-yF-BZm"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-lf-drh">
-                                        <rect key="frame" x="133.5" y="0.0" width="116.5" height="50.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-lf-drh">
+                                        <rect key="frame" x="133.5" y="0.0" width="116.5" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGc-PV-wvX">
-                                                <rect key="frame" x="35.5" y="0.0" width="45" height="20.5"/>
+                                                <rect key="frame" x="35.5" y="0.0" width="45" height="32.5"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Change"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMI-nh-LwC">
-                                                <rect key="frame" x="13" y="20.5" width="90" height="30"/>
+                                                <rect key="frame" x="13" y="32.5" width="90" height="48"/>
                                                 <state key="normal" title="Take Change"/>
                                                 <connections>
                                                     <action selector="takeChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qpu-5i-LHM"/>
@@ -68,7 +75,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-Bf-jIF">
-                                <rect key="frame" x="62.5" y="178.5" width="250" height="30"/>
+                                <rect key="frame" x="62.5" y="163.5" width="250" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwt-9n-GS1">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>

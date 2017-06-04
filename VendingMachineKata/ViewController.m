@@ -108,6 +108,12 @@
     [self buyProduct:self.candy];
 }
 
+- (IBAction)coinReturn:(id)sender {
+    [self.vendingMachineManager coinReturn];
+    [self showAmountOfChange];
+    [self showAmountInput];
+}
+
 #pragma mark - supporting functions
 
 - (void)insertCoin:(CoinType) coin {

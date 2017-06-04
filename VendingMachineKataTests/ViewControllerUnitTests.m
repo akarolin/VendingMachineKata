@@ -95,4 +95,14 @@
     XCTAssertTrue([self.viewController.AmountOfChangeLabel.text isEqualToString:@"$0.15"]);
 }
 
+- (void)testCoinReturn {
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController takeChange:self.viewController];
+    [self.viewController coinReturn:self.viewController];
+    XCTAssertTrue([self.viewController.AmountOfChangeLabel.text isEqualToString:@"$0.75"]);
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:INSERT_COIN]);
+}
+
 @end

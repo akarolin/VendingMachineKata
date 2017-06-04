@@ -20,6 +20,7 @@
 - (IBAction)buyChips:(id)sender;
 - (IBAction)buyCola:(id)sender;
 - (IBAction)buyCandy:(id)sender;
+- (IBAction)coinReturn:(id)sender;
 
 - (void)insertCoin:(CoinType) coin;
 - (void)buyProduct:(Product *)product;
