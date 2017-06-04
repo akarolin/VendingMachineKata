@@ -162,5 +162,21 @@
     XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
 }
 
+-(void)testBuySoldOut {
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
+    NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
+    int timeOutWait = 2;
+    
+    [app.switches[@"0"] tap];
+    [app.buttons[@"Buy Chips"] tap];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:SOLD_OUT]);
+
+    XCUIElement *label = app.staticTexts[INSERT_COIN];
+    [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
+    [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+}
+
 
 @end

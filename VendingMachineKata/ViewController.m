@@ -108,10 +108,14 @@
     [self buyProduct:self.candy];
 }
 
-- (IBAction)coinReturn:(id)sender {
+- (IBAction)returnCoins:(id)sender {
     [self.vendingMachineManager coinReturn];
     [self showAmountOfChange];
     [self showAmountInput];
+}
+
+- (IBAction)setSoldOutStatus:(id)sender {
+    self.vendingMachineManager.isSoldOut = self.soldOutSwitch.on;
 }
 
 #pragma mark - supporting functions
@@ -137,7 +141,8 @@
 }
 
 - (void)showProductPrice:(Product *)product {
-    self.AmountInputLabel.text = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,product.price/100,product.price%100];
+    NSString *priceLabel = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,product.price/100,product.price%100];
+    self.AmountInputLabel.text = self.vendingMachineManager.isSoldOut ? SOLD_OUT : priceLabel;
 }
 
 - (void)showThankYou {
@@ -153,4 +158,9 @@
     }
     [self performSelector:@selector(showAmountInput) withObject:nil afterDelay:self.secondsOfDelay];
 }
+
+- (void)setSoldOut:(BOOL)isSoldOut {
+    self.vendingMachineManager.isSoldOut = isSoldOut;
+}
+
 @end

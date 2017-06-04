@@ -100,9 +100,18 @@
     [self.viewController insertCoin:Quarter];
     [self.viewController insertCoin:Quarter];
     [self.viewController takeChange:self.viewController];
-    [self.viewController coinReturn:self.viewController];
+    [self.viewController returnCoins:self.viewController];
     XCTAssertTrue([self.viewController.AmountOfChangeLabel.text isEqualToString:@"$0.75"]);
     XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:INSERT_COIN]);
 }
+
+- (void)testSoldOut {
+    Product *product = [[Product alloc] initProductName:@"Chips" withPrice:60];
+    [self.viewController setSoldOut:YES];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:INSERT_COIN]);
+    [self.viewController buyProduct:product];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:SOLD_OUT]);
+}
+
 
 @end

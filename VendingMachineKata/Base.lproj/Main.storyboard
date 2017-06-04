@@ -45,7 +45,7 @@
                                                 <rect key="frame" x="26" y="50.5" width="81" height="30"/>
                                                 <state key="normal" title="Coin Return"/>
                                                 <connections>
-                                                    <action selector="coinReturn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U6D-yF-BZm"/>
+                                                    <action selector="returnCoins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oum-C5-gmG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -103,18 +103,38 @@
                                     <constraint firstAttribute="width" constant="250" id="i0f-lk-ArR"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4N-Kc-rBa">
+                                <rect key="frame" x="62.5" y="449" width="115.5" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-ZQ-tEY">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="setSoldOutStatus:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Mi-aM-aoW"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-Zy-G6M">
+                                        <rect key="frame" x="49" y="0.0" width="66.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="C0G-Hb-OUY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3aM-8G-oIR"/>
+                            <constraint firstItem="u4N-Kc-rBa" firstAttribute="top" secondItem="C0G-Hb-OUY" secondAttribute="bottom" constant="75" id="7Ka-Fd-vLz"/>
                             <constraint firstItem="C0G-Hb-OUY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DWF-zR-ORG"/>
                             <constraint firstItem="C0G-Hb-OUY" firstAttribute="top" secondItem="y9W-Bf-jIF" secondAttribute="bottom" constant="100" id="Ff9-s6-QsJ"/>
+                            <constraint firstItem="u4N-Kc-rBa" firstAttribute="leading" secondItem="C0G-Hb-OUY" secondAttribute="leading" id="Jjp-p7-VcB"/>
                             <constraint firstItem="y9W-Bf-jIF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xmj-jL-gsG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="AmountInputLabel" destination="45C-PW-s75" id="4eE-FQ-IGJ"/>
                         <outlet property="AmountOfChangeLabel" destination="UGc-PV-wvX" id="EBB-sL-8PS"/>
+                        <outlet property="soldOutSwitch" destination="6xi-ZQ-tEY" id="FSE-aC-Gol"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

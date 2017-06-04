@@ -12,6 +12,8 @@
 
 @interface VendingMachineManager : NSObject
 
+@property BOOL isSoldOut;
+
 - (void)insertCoin:(CoinType) coin;
 - (NSUInteger)pennyAmountOfCoinsInput;
 - (NSUInteger)pennyAmountOfCoinsReturned;

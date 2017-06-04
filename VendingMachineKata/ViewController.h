@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *AmountInputLabel;
 @property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *soldOutSwitch;
 
 @property NSTimeInterval secondsOfDelay;
 
@@ -20,10 +21,12 @@
 - (IBAction)buyChips:(id)sender;
 - (IBAction)buyCola:(id)sender;
 - (IBAction)buyCandy:(id)sender;
-- (IBAction)coinReturn:(id)sender;
+- (IBAction)returnCoins:(id)sender;
+- (IBAction)setSoldOutStatus:(id)sender;
 
 - (void)insertCoin:(CoinType) coin;
 - (void)buyProduct:(Product *)product;
+- (void)setSoldOut:(BOOL)isSoldOut;
 
 @end
 
@@ -31,6 +34,7 @@
 NSString * const THANK_YOU = @"THANK YOU";
 NSString * const INSERT_COIN = @"INSERT COIN";
 NSString * const PRICE = @"PRICE:";
+NSString * const SOLD_OUT = @"SOLD OUT";
 NSUInteger const CHIP_PRICE = 50;
 NSUInteger const COLA_PRICE = 100;
 NSUInteger const CANDY_PRICE = 65;
