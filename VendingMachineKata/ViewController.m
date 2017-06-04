@@ -115,7 +115,11 @@
 }
 
 - (IBAction)setSoldOutStatus:(id)sender {
-    self.vendingMachineManager.isSoldOut = self.soldOutSwitch.on;
+    [self setSoldOut:self.soldOutSwitch.on];
+}
+
+- (IBAction)exactChangeSwitchAction:(id)sender {
+    [self setExactChange:self.exactChangeSwitch.on];
 }
 
 #pragma mark - supporting functions
@@ -132,7 +136,7 @@
 
 - (void)showAmountInput {
     NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
-    self.AmountInputLabel.text = total == 0 ? INSERT_COIN : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
+    self.AmountInputLabel.text = total == 0 ? self.vendingMachineManager.useExactChange ? EXACT_CHANGE_ONLY : INSERT_COIN : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
 }
 
 - (void)showAmountOfChange {
@@ -142,7 +146,7 @@
 
 - (void)showProductPrice:(Product *)product {
     NSString *priceLabel = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,product.price/100,product.price%100];
-    self.AmountInputLabel.text = self.vendingMachineManager.isSoldOut ? SOLD_OUT : priceLabel;
+    self.AmountInputLabel.text = self.vendingMachineManager.isSoldOut ? SOLD_OUT : self.vendingMachineManager.productCostExceeded ? EXACT_CHANGE_ONLY : priceLabel;
 }
 
 - (void)showThankYou {
@@ -161,6 +165,11 @@
 
 - (void)setSoldOut:(BOOL)isSoldOut {
     self.vendingMachineManager.isSoldOut = isSoldOut;
+}
+
+- (void)setExactChange:(BOOL)useExactChange {
+    self.vendingMachineManager.useExactChange = useExactChange;
+    [self showAmountInput];
 }
 
 @end

@@ -113,5 +113,32 @@
     XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:SOLD_OUT]);
 }
 
+- (void)testSoldOutToggle {
+    Product *product = [[Product alloc] initProductName:@"Chips" withPrice:25];
+    [self.viewController setSoldOut:YES];
+    [self.viewController setSoldOut:NO];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController buyProduct:product];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:THANK_YOU]);
+}
+
+- (void)testExactChangeToggle {
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:INSERT_COIN]);
+    [self.viewController setExactChange:YES];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:EXACT_CHANGE_ONLY]);
+    [self.viewController setExactChange:NO];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:INSERT_COIN]);
+}
+
+- (void)testExactChangeInput {
+    Product *product = [[Product alloc] initProductName:@"Chips" withPrice:60];
+    [self.viewController setExactChange:YES];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:EXACT_CHANGE_ONLY]);
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController buyProduct:product];
+    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:EXACT_CHANGE_ONLY]);
+}
 
 @end

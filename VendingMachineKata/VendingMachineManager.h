@@ -13,6 +13,8 @@
 @interface VendingMachineManager : NSObject
 
 @property BOOL isSoldOut;
+@property BOOL useExactChange;
+@property BOOL productCostExceeded;
 
 - (void)insertCoin:(CoinType) coin;
 - (NSUInteger)pennyAmountOfCoinsInput;

@@ -168,7 +168,7 @@
     NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
     int timeOutWait = 2;
     
-    [app.switches[@"0"] tap];
+    [app.switches[@"Sold Out"] tap];
     [app.buttons[@"Buy Chips"] tap];
     XCTAssertTrue([insertCoinLabel.label isEqualToString:SOLD_OUT]);
 
@@ -176,6 +176,48 @@
     [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
     [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
     XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+}
+
+-(void)testExactChangeToggle {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *exactChangeSwitch = app.switches[@"Exact Change"];
+    XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+    [exactChangeSwitch tap];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:EXACT_CHANGE_ONLY]);
+    [exactChangeSwitch tap];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+}
+
+-(void)testExactChangePurchaseAttempt {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
+    NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
+    int timeOutWait = 2;
+
+    [app.switches[@"Exact Change"] tap];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:EXACT_CHANGE_ONLY]);
+    
+    XCUIElement *addMoneyButton = app.buttons[@"Add Money"];
+    XCUIElement *quarterButton = app.sheets[@"Insert Coins"].buttons[@"Quarter"];
+
+    [addMoneyButton tap];
+    [quarterButton tap];
+    [addMoneyButton tap];
+    [quarterButton tap];
+    [addMoneyButton tap];
+    [quarterButton tap];
+    
+    NSString *amountString = @"$0.75";
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:amountString]);
+    [app.buttons[@"Buy Candy"] tap];
+    
+    XCUIElement *label = app.staticTexts[amountString];
+    [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
+    [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:amountString]);
 }
 
 

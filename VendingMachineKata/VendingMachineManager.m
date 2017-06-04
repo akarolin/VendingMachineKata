@@ -53,12 +53,17 @@
 
 
 - (BOOL)canBuyProduct:(Product *)product {
-    return self.totalAmountInput >= product.price;
+    self.productCostExceeded = self.totalAmountInput > product.price;
+    if (self.useExactChange)
+        return self.totalAmountInput == product.price;
+    else
+        return self.totalAmountInput >= product.price;
 }
 
 - (void)completeTransaction:(Product *)product {
-    if (self.totalAmountInput > product.price)
+    if (self.productCostExceeded) {
         self.totalAmountOfChange = self.totalAmountInput - product.price;
+    }
     self.totalAmountInput = 0;
 }
 

@@ -22,27 +22,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="C0G-Hb-OUY">
-                                <rect key="frame" x="62.5" y="293.5" width="250" height="80.5"/>
+                                <rect key="frame" x="50.5" y="293.5" width="274" height="80.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CZD-lk-RTi">
-                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSERT COIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45C-PW-s75">
-                                                <rect key="frame" x="15" y="0.0" width="103" height="20.5"/>
+                                                <rect key="frame" x="21.5" y="0.0" width="103" height="20.5"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="InsertCoins"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzL-Ki-oOE">
-                                                <rect key="frame" x="27.5" y="20.5" width="78" height="30"/>
+                                                <rect key="frame" x="34" y="20.5" width="78" height="30"/>
                                                 <state key="normal" title="Add Money"/>
                                                 <connections>
                                                     <action selector="AddMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ugC-Nm-IGY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="An7-Oz-JIW">
-                                                <rect key="frame" x="26" y="50.5" width="81" height="30"/>
+                                                <rect key="frame" x="32.5" y="50.5" width="81" height="30"/>
                                                 <state key="normal" title="Coin Return"/>
                                                 <connections>
                                                     <action selector="returnCoins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oum-C5-gmG"/>
@@ -51,17 +51,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-lf-drh">
-                                        <rect key="frame" x="133.5" y="0.0" width="116.5" height="80.5"/>
+                                        <rect key="frame" x="146" y="0.0" width="128" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGc-PV-wvX">
-                                                <rect key="frame" x="35.5" y="0.0" width="45" height="32.5"/>
+                                                <rect key="frame" x="41.5" y="0.0" width="45" height="32.5"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Change"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMI-nh-LwC">
-                                                <rect key="frame" x="13" y="32.5" width="90" height="48"/>
+                                                <rect key="frame" x="19" y="32.5" width="90" height="48"/>
                                                 <state key="normal" title="Take Change"/>
                                                 <connections>
                                                     <action selector="takeChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qpu-5i-LHM"/>
@@ -71,7 +71,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="88j-em-1Ju"/>
+                                    <constraint firstAttribute="width" constant="274" id="88j-em-1Ju"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-Bf-jIF">
@@ -103,37 +103,53 @@
                                     <constraint firstAttribute="width" constant="250" id="i0f-lk-ArR"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4N-Kc-rBa">
-                                <rect key="frame" x="62.5" y="449" width="115.5" height="31"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-ZQ-tEY">
-                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="setSoldOutStatus:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Mi-aM-aoW"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-Zy-G6M">
-                                        <rect key="frame" x="49" y="0.0" width="66.5" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-ZQ-tEY">
+                                <rect key="frame" x="50.5" y="454" width="51" height="31"/>
+                                <accessibility key="accessibilityConfiguration" label="Sold Out"/>
+                                <connections>
+                                    <action selector="setSoldOutStatus:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Mi-aM-aoW"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-Zy-G6M">
+                                <rect key="frame" x="110" y="459.5" width="66.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dEP-oT-W37">
+                                <rect key="frame" x="50.5" y="500" width="51" height="31"/>
+                                <accessibility key="accessibilityConfiguration" label="Exact Change"/>
+                                <connections>
+                                    <action selector="exactChangeSwitchAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="0xz-h8-U6X"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exact Change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Aj-rl-QgN">
+                                <rect key="frame" x="110" y="505.5" width="106.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6xi-ZQ-tEY" firstAttribute="top" secondItem="C0G-Hb-OUY" secondAttribute="bottom" constant="80" id="1L9-J5-OaK"/>
                             <constraint firstItem="C0G-Hb-OUY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3aM-8G-oIR"/>
-                            <constraint firstItem="u4N-Kc-rBa" firstAttribute="top" secondItem="C0G-Hb-OUY" secondAttribute="bottom" constant="75" id="7Ka-Fd-vLz"/>
+                            <constraint firstItem="4Aj-rl-QgN" firstAttribute="centerY" secondItem="dEP-oT-W37" secondAttribute="centerY" id="4FN-cW-w6e"/>
                             <constraint firstItem="C0G-Hb-OUY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DWF-zR-ORG"/>
                             <constraint firstItem="C0G-Hb-OUY" firstAttribute="top" secondItem="y9W-Bf-jIF" secondAttribute="bottom" constant="100" id="Ff9-s6-QsJ"/>
-                            <constraint firstItem="u4N-Kc-rBa" firstAttribute="leading" secondItem="C0G-Hb-OUY" secondAttribute="leading" id="Jjp-p7-VcB"/>
+                            <constraint firstItem="4Aj-rl-QgN" firstAttribute="leading" secondItem="cxs-Zy-G6M" secondAttribute="leading" id="ITZ-Ry-V25"/>
+                            <constraint firstItem="cxs-Zy-G6M" firstAttribute="leading" secondItem="6xi-ZQ-tEY" secondAttribute="trailing" constant="10" id="iPv-ub-OpL"/>
+                            <constraint firstItem="dEP-oT-W37" firstAttribute="leading" secondItem="6xi-ZQ-tEY" secondAttribute="leading" id="j01-Jb-kCM"/>
+                            <constraint firstItem="dEP-oT-W37" firstAttribute="top" secondItem="6xi-ZQ-tEY" secondAttribute="bottom" constant="15" id="nHC-nY-v7a"/>
+                            <constraint firstItem="6xi-ZQ-tEY" firstAttribute="leading" secondItem="C0G-Hb-OUY" secondAttribute="leading" id="oYh-Da-ttE"/>
+                            <constraint firstItem="cxs-Zy-G6M" firstAttribute="centerY" secondItem="6xi-ZQ-tEY" secondAttribute="centerY" id="qFO-ck-5bQ"/>
                             <constraint firstItem="y9W-Bf-jIF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xmj-jL-gsG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="AmountInputLabel" destination="45C-PW-s75" id="4eE-FQ-IGJ"/>
                         <outlet property="AmountOfChangeLabel" destination="UGc-PV-wvX" id="EBB-sL-8PS"/>
+                        <outlet property="exactChangeSwitch" destination="dEP-oT-W37" id="rsf-PQ-5bY"/>
                         <outlet property="soldOutSwitch" destination="6xi-ZQ-tEY" id="FSE-aC-Gol"/>
                     </connections>
                 </viewController>
