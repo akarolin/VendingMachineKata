@@ -120,11 +120,6 @@
     [self showProductPrice:product];
 }
 
-- (void)successfulPurchase {
-    [self.vendingMachineManager completeTransaction];
-    [self showAmountInput];
-}
-
 - (void)showAmountInput {
     NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
     self.AmountInputLabel.text = total == 0 ? INSERT_COIN : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
@@ -144,12 +139,12 @@
 }
 
 - (void)buyProduct:(Product *)product {
-    if ([self.vendingMachineManager canBuyProduct:product]) {
+    if ([self.vendingMachineManager buyProduct:product]) {
         [self showThankYou];
-        [self performSelector:@selector(successfulPurchase) withObject:nil afterDelay:self.secondsOfDelay];
+        [self showAmountOfChange];
     } else {
         [self needMoreMoney:product];
-        [self performSelector:@selector(showAmountInput) withObject:nil afterDelay:self.secondsOfDelay];
     }
+    [self performSelector:@selector(showAmountInput) withObject:nil afterDelay:self.secondsOfDelay];
 }
 @end

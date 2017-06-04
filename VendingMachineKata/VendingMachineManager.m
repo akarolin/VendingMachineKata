@@ -56,8 +56,19 @@
     return self.totalAmountInput >= product.price;
 }
 
-- (void)completeTransaction {
+- (void)completeTransaction:(Product *)product {
+    if (self.totalAmountInput > product.price)
+        self.totalAmountOfChange = self.totalAmountInput - product.price;
     self.totalAmountInput = 0;
+}
+
+- (BOOL)buyProduct:(Product *)product {
+    BOOL bought = NO;
+    if ([self canBuyProduct:product]) {
+        [self completeTransaction:product];
+        bought = YES;
+    }
+    return bought;
 }
 
 @end

@@ -84,11 +84,15 @@
     [self.viewController insertCoin:Quarter];
     [self.viewController buyProduct:product];
     XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:THANK_YOU]);
-    
-    [self.viewController insertCoin:Quarter];
-    [self.viewController buyProduct:product];
-    XCTAssertTrue([self.viewController.AmountInputLabel.text isEqualToString:THANK_YOU]);    
 }
 
+- (void)testMakeChange {
+    Product *product = [[Product alloc] initProductName:@"Chips" withPrice:60];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController insertCoin:Quarter];
+    [self.viewController buyProduct:product];
+    XCTAssertTrue([self.viewController.AmountOfChangeLabel.text isEqualToString:@"$0.15"]);
+}
 
 @end

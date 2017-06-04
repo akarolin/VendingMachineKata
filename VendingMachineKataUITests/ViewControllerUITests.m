@@ -102,7 +102,10 @@
     XCUIApplication *app = [[XCUIApplication alloc] init];
     XCUIElement *buyButton = app.buttons[buttonName];
     XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
+    XCUIElement *changeLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"Change"];
+
     NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
+    int timeOutWait = 2;
 
     NSString *priceString = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,price/100, price%100];
     NSUInteger amountInserted = 0;
@@ -117,7 +120,7 @@
         // Wait for label to return to showing the current amount
         XCUIElement *label = app.staticTexts[amountInsertedString];
         [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
-        [self waitForExpectationsWithTimeout:5 handler:nil];
+        [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
         XCTAssertTrue([insertCoinLabel.label isEqualToString:amountInsertedString]);
         
         [app.buttons[@"Add Money"] tap];
@@ -132,8 +135,12 @@
     // Wait for label to return to INSERT_COIN
     XCUIElement *label = app.staticTexts[INSERT_COIN];
     [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
-    [self waitForExpectationsWithTimeout:5 handler:nil];
+    [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
     XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+    
+    NSUInteger change = amountInserted - price;
+    NSString *amountOfChange = [NSString stringWithFormat:@"$%lu.%02lu",change/100, change%100];
+    XCTAssertTrue([changeLabel.label isEqualToString:amountOfChange]);
 }
 
 
