@@ -71,4 +71,11 @@
     return bought;
 }
 
+- (NSUInteger)coinReturn {
+    self.totalAmountOfChange += self.totalAmountInput;
+    NSUInteger saveTotalAmountInput = self.totalAmountInput;
+    self.totalAmountInput = 0;
+    return saveTotalAmountInput;
+}
+
 @end

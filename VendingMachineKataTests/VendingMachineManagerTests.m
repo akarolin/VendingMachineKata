@@ -39,6 +39,8 @@
 }
 
 - (void)testInvalidCoin {
+    [self.vendingMachineManager takeChange];
+
     [self.vendingMachineManager insertCoin:Penny];
     XCTAssertTrue([self.vendingMachineManager pennyAmountOfCoinsReturned] == 1);
     
@@ -69,6 +71,7 @@
 
 - (void)testCoinsRejected {
     NSUInteger total = 0;
+    [self.vendingMachineManager takeChange];
     
     [self.vendingMachineManager insertCoin:Penny];
     total = [self.vendingMachineManager pennyAmountOfCoinsReturned];
@@ -97,7 +100,7 @@
 
 - (void)testTakeChange {
     NSUInteger total;
-    
+    [self.vendingMachineManager takeChange];
     [self.vendingMachineManager insertCoin:Penny];
     [self.vendingMachineManager insertCoin:Penny];
     [self.vendingMachineManager insertCoin:Penny];
@@ -125,11 +128,21 @@
 
 - (void)testCompleteTransactionWithChange {
     Product *product = [[Product alloc] initProductName:@"Chips" withPrice:60];
+    [self.vendingMachineManager takeChange];
     [self.vendingMachineManager insertCoin:Quarter];
     [self.vendingMachineManager insertCoin:Quarter];
     [self.vendingMachineManager insertCoin:Quarter];
     [self.vendingMachineManager buyProduct:product];
     XCTAssertTrue([self.vendingMachineManager pennyAmountOfCoinsReturned] == 15);
 }
+
+- (void)testCoinReturn {
+    [self.vendingMachineManager insertCoin:Quarter];
+    [self.vendingMachineManager insertCoin:Quarter];
+    [self.vendingMachineManager insertCoin:Quarter];
+    XCTAssertTrue([self.vendingMachineManager coinReturn] == 75);
+    XCTAssertTrue([self.vendingMachineManager pennyAmountOfCoinsReturned] == 75);
+}
+
 
 @end

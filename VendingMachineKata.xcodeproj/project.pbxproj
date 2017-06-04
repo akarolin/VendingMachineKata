@@ -145,9 +145,9 @@
 		0B5593021EE05EBD00D19E1D /* VendingMachineKataTests */ = {
 			isa = PBXGroup;
 			children = (
-				0B1A974F1EE0B2FD00DD1846 /* ViewControllerUnitTests.m */,
 				0B55931C1EE0672A00D19E1D /* CoinManagerTests.m */,
 				0B1A974D1EE0924E00DD1846 /* VendingMachineManagerTests.m */,
+				0B1A974F1EE0B2FD00DD1846 /* ViewControllerUnitTests.m */,
 				0B5593051EE05EBD00D19E1D /* Info.plist */,
 			);
 			path = VendingMachineKataTests;
