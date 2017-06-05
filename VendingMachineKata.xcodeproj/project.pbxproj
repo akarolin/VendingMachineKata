@@ -115,6 +115,8 @@
 		0B5592E81EE05EBC00D19E1D /* VendingMachineKata */ = {
 			isa = PBXGroup;
 			children = (
+				0B5592EF1EE05EBC00D19E1D /* ViewController.h */,
+				0B5592F01EE05EBC00D19E1D /* ViewController.m */,
 				0B1A97531EE1B86D00DD1846 /* Product.h */,
 				0B1A97541EE1B86D00DD1846 /* Product.m */,
 				0B55931E1EE07C4000D19E1D /* CoinManager.h */,
@@ -123,12 +125,6 @@
 				0B1A974B1EE089CE00DD1846 /* VendingMachineManager.m */,
 				0B5592EC1EE05EBC00D19E1D /* AppDelegate.h */,
 				0B5592ED1EE05EBC00D19E1D /* AppDelegate.m */,
-				0B5592EF1EE05EBC00D19E1D /* ViewController.h */,
-				0B5592F01EE05EBC00D19E1D /* ViewController.m */,
-				0B5592F21EE05EBC00D19E1D /* Main.storyboard */,
-				0B5592F51EE05EBC00D19E1D /* Assets.xcassets */,
-				0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */,
-				0B5592FA1EE05EBD00D19E1D /* Info.plist */,
 				0B5592E91EE05EBC00D19E1D /* Supporting Files */,
 			);
 			path = VendingMachineKata;
@@ -137,6 +133,10 @@
 		0B5592E91EE05EBC00D19E1D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0B5592F21EE05EBC00D19E1D /* Main.storyboard */,
+				0B5592F51EE05EBC00D19E1D /* Assets.xcassets */,
+				0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */,
+				0B5592FA1EE05EBD00D19E1D /* Info.plist */,
 				0B5592EA1EE05EBC00D19E1D /* main.m */,
 			);
 			name = "Supporting Files";

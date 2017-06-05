@@ -39,6 +39,7 @@
     XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
     XCUIElement *changeLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"Change"];
 
+    // Input label should read "INSERT COIN" to start
     XCTAssertTrue([insertCoinLabel.label isEqualToString:@"INSERT COIN"]);
     XCTAssertTrue([changeLabel.label isEqualToString:@"$0.00"]);
     
@@ -47,21 +48,29 @@
     
     XCUIElement *insertCoinsSheet = app.sheets[@"Insert Coins"];
     [insertCoinsSheet.buttons[@"Penny"] tap];
+    
+    // penny added, goes to change tray. Input label still shows "INSERT COIN"
     XCTAssertTrue([insertCoinLabel.label isEqualToString:@"INSERT COIN"]);
     XCTAssertTrue([changeLabel.label isEqualToString:@"$0.01"]);
 
     [addMoneyButton tap];
     [insertCoinsSheet.buttons[@"Nickel"] tap];
+    
+    // Input label incremented by 5 cents.
     XCTAssertTrue([insertCoinLabel.label isEqualToString:@"$0.05"]);
     XCTAssertTrue([changeLabel.label isEqualToString:@"$0.01"]);
 
     [addMoneyButton tap];
     [insertCoinsSheet.buttons[@"Dime"] tap];
+    
+    // Input label incremented by 10 cents.
     XCTAssertTrue([insertCoinLabel.label isEqualToString:@"$0.15"]);
     XCTAssertTrue([changeLabel.label isEqualToString:@"$0.01"]);
 
     [addMoneyButton tap];
     [insertCoinsSheet.buttons[@"Quarter"] tap];
+
+    // Input label incremented by 25 cents.
     XCTAssertTrue([insertCoinLabel.label isEqualToString:@"$0.40"]);
     XCTAssertTrue([changeLabel.label isEqualToString:@"$0.01"]);
 }
@@ -72,6 +81,7 @@
     XCUIElement *addMoneyButton = app.buttons[@"Add Money"];
     [addMoneyButton tap];
     
+    // add money to change tray
     XCUIElement *pennyButton = app.sheets[@"Insert Coins"].buttons[@"Penny"];
     [pennyButton tap];
     [addMoneyButton tap];
@@ -80,10 +90,10 @@
     [pennyButton tap];
     
     XCUIElement *changeLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"Change"];
-    XCTAssertTrue([changeLabel.label isEqualToString:@"$0.03"]);
+    XCTAssertTrue([changeLabel.label isEqualToString:@"$0.03"]); // money in change tray
     
     [app.buttons[@"Take Change"] tap];
-    XCTAssertTrue([changeLabel.label isEqualToString:@"$0.00"]);
+    XCTAssertTrue([changeLabel.label isEqualToString:@"$0.00"]); // no more money in change tray
 }
 
 -(void)testBuyChips {
@@ -104,6 +114,7 @@
     XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
     XCUIElement *changeLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"Change"];
 
+    // timer to wait for label changes to process
     NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
     int timeOutWait = 2;
 
@@ -111,16 +122,20 @@
     NSUInteger amountInserted = 0;
     NSString * amountInsertedString = INSERT_COIN;
 
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:amountInsertedString]);
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:amountInsertedString]);    // no money yet
 
-    while (amountInserted < price) {
+    while (amountInserted < price) {    // repeat this loop until enough money is added
         [buyButton tap];
+        
+        // not enough money, display product price
         XCTAssertTrue([insertCoinLabel.label isEqualToString:priceString]);
         
         // Wait for label to return to showing the current amount
         XCUIElement *label = app.staticTexts[amountInsertedString];
         [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
         [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
+        
+        // now showing amount of coins input
         XCTAssertTrue([insertCoinLabel.label isEqualToString:amountInsertedString]);
         
         [app.buttons[@"Add Money"] tap];
@@ -130,16 +145,20 @@
     }
 
     [buyButton tap];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:THANK_YOU]);
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:THANK_YOU]); // purchase successful
 
     // Wait for label to return to INSERT_COIN
     XCUIElement *label = app.staticTexts[INSERT_COIN];
     [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
     [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
+    
+    // display restored to initial state
     XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
     
     NSUInteger change = amountInserted - price;
     NSString *amountOfChange = [NSString stringWithFormat:@"$%lu.%02lu",change/100, change%100];
+    
+    // check for change
     XCTAssertTrue([changeLabel.label isEqualToString:amountOfChange]);
 }
 
@@ -149,6 +168,7 @@
     XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
     XCUIElement *changeLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"Change"];
 
+    // insert coins
     XCUIElement *addMoneyButton = app.buttons[@"Add Money"];
     [addMoneyButton tap];
     
@@ -158,6 +178,7 @@
     [insertCoinsSheet.buttons[@"Dime"] tap];
     [app.buttons[@"Coin Return"] tap];
 
+    // check that coins were returned
     XCTAssertTrue([changeLabel.label isEqualToString:@"$0.15"]);
     XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
 }
@@ -168,10 +189,13 @@
     NSPredicate *exists = [NSPredicate predicateWithFormat:@"exists == 1"];
     int timeOutWait = 2;
     
-    [app.switches[@"Sold Out"] tap];
-    [app.buttons[@"Buy Chips"] tap];
+    [app.switches[@"Sold Out"] tap];    // set sold out state
+    [app.buttons[@"Buy Chips"] tap];    // try to buy product
+    
+    // Cannot buy product because it is sold out
     XCTAssertTrue([insertCoinLabel.label isEqualToString:SOLD_OUT]);
 
+    // wait for display to return to amoun input
     XCUIElement *label = app.staticTexts[INSERT_COIN];
     [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
     [self waitForExpectationsWithTimeout:timeOutWait handler:nil];
@@ -183,11 +207,12 @@
     XCUIApplication *app = [[XCUIApplication alloc] init];
     XCUIElement *exactChangeSwitch = app.switches[@"Exact Change"];
     XCUIElement *insertCoinLabel = [app.staticTexts elementMatchingType:XCUIElementTypeAny identifier:@"InsertCoins"];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+    
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]); // Initial value
     [exactChangeSwitch tap];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:EXACT_CHANGE_ONLY]);
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:EXACT_CHANGE_ONLY]); // exact change on
     [exactChangeSwitch tap];
-    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]);
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:INSERT_COIN]); // exact change off agaoin
 }
 
 -(void)testExactChangePurchaseAttempt {
@@ -200,6 +225,7 @@
     [app.switches[@"Exact Change"] tap];
     XCTAssertTrue([insertCoinLabel.label isEqualToString:EXACT_CHANGE_ONLY]);
     
+    // add more money than product price
     XCUIElement *addMoneyButton = app.buttons[@"Add Money"];
     XCUIElement *quarterButton = app.sheets[@"Insert Coins"].buttons[@"Quarter"];
 
@@ -212,8 +238,11 @@
     
     NSString *amountString = @"$0.75";
     XCTAssertTrue([insertCoinLabel.label isEqualToString:amountString]);
-    [app.buttons[@"Buy Candy"] tap];
     
+    [app.buttons[@"Buy Candy"] tap];
+    XCTAssertTrue([insertCoinLabel.label isEqualToString:EXACT_CHANGE_ONLY]); // Too much money
+
+    // revert label
     XCUIElement *label = app.staticTexts[amountString];
     [self expectationForPredicate:exists evaluatedWithObject:label handler:nil];
     [self waitForExpectationsWithTimeout:timeOutWait handler:nil];

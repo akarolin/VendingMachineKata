@@ -74,15 +74,15 @@
     
     [self.viewController buyProduct:product];
 
-    XCTAssertTrue(self.viewController.currentProductPrice == 50);
+    XCTAssertTrue(self.viewController.currentProductPrice == 50); // check if product price is updated
 
     [self.viewController insertCoin:Quarter];
     [self.viewController buyProduct:product];
-    XCTAssertTrue(self.viewController.totalAmountInput == 25);
+    XCTAssertTrue(self.viewController.totalAmountInput == 25);  // not enough money yet
     
     [self.viewController insertCoin:Quarter];
     [self.viewController buyProduct:product];
-    XCTAssertTrue(self.viewController.totalAmountInput == 0);
+    XCTAssertTrue(self.viewController.totalAmountInput == 0);   // product purchase with exact change
 }
 
 - (void)testMakeChange {
@@ -109,34 +109,47 @@
     [self.viewController setSoldOut:YES];
     [self.viewController insertCoin:Quarter];
     [self.viewController buyProduct:product];
+    
+    // total amount input should remain even when there is enough money to purchase
     XCTAssertTrue(self.viewController.totalAmountInput == 25);
 }
 
 - (void)testSoldOutToggle {
     Product *product = [[Product alloc] initProductName:@"Chips" withPrice:25];
+
+    // make sure toggle resets properly
     [self.viewController setSoldOut:YES];
     [self.viewController setSoldOut:NO];
     [self.viewController insertCoin:Quarter];
     [self.viewController buyProduct:product];
-    XCTAssertTrue(self.viewController.totalAmountInput == 0);
+    
+    // able to buy because toggle set back to not sold out
+    XCTAssertTrue(self.viewController.totalAmountInput == 0); // able to buy
 }
 
 - (void)testExactChangeToggle {
     Product *product = [[Product alloc] initProductName:@"Chips" withPrice:40];
+
+    // make sure toggle resets properly
     [self.viewController setExactChange:YES];
     [self.viewController setExactChange:NO];
     [self.viewController insertCoin:Quarter];
     [self.viewController insertCoin:Quarter];
     [self.viewController buyProduct:product];
+    
+    // able to buy because toggle reset to exact change not required
     XCTAssertTrue(self.viewController.totalAmountInput == 0);
 }
 
 - (void)testExactChangeUsed {
     Product *product = [[Product alloc] initProductName:@"Chips" withPrice:40];
+    
     [self.viewController setExactChange:YES];
     [self.viewController insertCoin:Quarter];
     [self.viewController insertCoin:Quarter];
     [self.viewController buyProduct:product];
+    
+    // not exact change. money stays in input
     XCTAssertTrue(self.viewController.totalAmountInput == 50);
 }
 
