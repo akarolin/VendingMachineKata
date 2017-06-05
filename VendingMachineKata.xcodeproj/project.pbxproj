@@ -21,6 +21,7 @@
 		0B5592F91EE05EBD00D19E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */; };
 		0B55931D1EE0672A00D19E1D /* CoinManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55931C1EE0672A00D19E1D /* CoinManagerTests.m */; };
 		0B5593201EE07C4000D19E1D /* CoinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55931F1EE07C4000D19E1D /* CoinManager.m */; };
+		0B878C6F1EE5BC3B00AAF973 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0B878C6E1EE5BC3B00AAF973 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0B55931C1EE0672A00D19E1D /* CoinManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinManagerTests.m; sourceTree = "<group>"; };
 		0B55931E1EE07C4000D19E1D /* CoinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinManager.h; sourceTree = "<group>"; };
 		0B55931F1EE07C4000D19E1D /* CoinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinManager.m; sourceTree = "<group>"; };
+		0B878C6E1EE5BC3B00AAF973 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		0B5592E91EE05EBC00D19E1D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0B878C6E1EE5BC3B00AAF973 /* README.md */,
 				0B5592F21EE05EBC00D19E1D /* Main.storyboard */,
 				0B5592F51EE05EBC00D19E1D /* Assets.xcassets */,
 				0B5592F71EE05EBD00D19E1D /* LaunchScreen.storyboard */,
@@ -301,6 +304,7 @@
 				0B5593201EE07C4000D19E1D /* CoinManager.m in Sources */,
 				0B5592F11EE05EBC00D19E1D /* ViewController.m in Sources */,
 				0B1A974C1EE089CE00DD1846 /* VendingMachineManager.m in Sources */,
+				0B878C6F1EE5BC3B00AAF973 /* README.md in Sources */,
 				0B1A97551EE1B86D00DD1846 /* Product.m in Sources */,
 				0B5592EE1EE05EBC00D19E1D /* AppDelegate.m in Sources */,
 				0B5592EB1EE05EBC00D19E1D /* main.m in Sources */,
