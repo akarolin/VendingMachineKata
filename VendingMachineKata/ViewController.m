@@ -10,6 +10,12 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *AmountInputLabel;
+@property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *soldOutSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *exactChangeSwitch;
+
+@property NSTimeInterval secondsOfDelay;
 @property (strong, nonatomic) VendingMachineManager *vendingMachineManager;
 
 @property (strong, nonatomic) Product *chips;
@@ -24,7 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.vendingMachineManager = [[VendingMachineManager alloc] init];
+    
     self.secondsOfDelay = 1.0;
+    self.totalAmountInput = 0;
+    self.totalInCoinReturn = 0;
+    self.currentProductPrice = 0;
     
     self.chips = [[Product alloc] initProductName:@"Chips" withPrice:CHIP_PRICE];
     self.cola =  [[Product alloc] initProductName:@"Cola" withPrice:COLA_PRICE];
@@ -91,30 +101,27 @@
     [self presentViewController:view animated:YES completion:nil];
 }
 
-- (IBAction)takeChange:(id)sender {
-    [self.vendingMachineManager takeChange];
-    [self showAmountOfChange];
+- (IBAction)takeChangeButtonAction:(id)sender {
+    [self takeChange];
 }
 
-- (IBAction)buyChips:(id)sender {
+- (IBAction)buyChipsButtonAction:(id)sender {
     [self buyProduct:self.chips];
 }
 
-- (IBAction)buyCola:(id)sender {
+- (IBAction)buyColaButtonAction:(id)sender {
     [self buyProduct:self.cola];
 }
 
-- (IBAction)buyCandy:(id)sender {
+- (IBAction)buyCandyButtonAction:(id)sender {
     [self buyProduct:self.candy];
 }
 
-- (IBAction)returnCoins:(id)sender {
-    [self.vendingMachineManager coinReturn];
-    [self showAmountOfChange];
-    [self showAmountInput];
+- (IBAction)returnCoinButtonAction:(id)sender {
+    [self returnCoins];
 }
 
-- (IBAction)setSoldOutStatus:(id)sender {
+- (IBAction)soldOutSwitchAction:(id)sender {
     [self setSoldOut:self.soldOutSwitch.on];
 }
 
@@ -123,29 +130,42 @@
 }
 
 #pragma mark - supporting functions
+- (void)updateCoinAmounts {
+    self.totalAmountInput  = [self.vendingMachineManager pennyAmountOfCoinsInput];
+    self.totalInCoinReturn = [self.vendingMachineManager pennyAmountOfCoinsReturned];
+}
+
+- (void)takeChange {
+    [self.vendingMachineManager takeChange];
+    [self updateCoinAmounts];
+    [self updateChangeLabel];
+}
+
+- (void) returnCoins {
+    [self.vendingMachineManager coinReturn];
+    [self updateCoinAmounts];
+    [self updateChangeLabel];
+    [self updateInputLabel];
+}
 
 - (void)insertCoin:(CoinType) coin {
     [self.vendingMachineManager insertCoin:coin];
-    [self showAmountInput];
-    [self showAmountOfChange];
+    [self updateCoinAmounts];
+    [self updateInputLabel];
+    [self updateChangeLabel];
 }
 
-- (void)needMoreMoney:(Product *)product {
-    [self showProductPrice:product];
+- (void)updateInputLabel {
+    self.AmountInputLabel.text = self.totalAmountInput == 0 ? (self.vendingMachineManager.useExactChange ? EXACT_CHANGE_ONLY : INSERT_COIN)
+                                                            : [NSString stringWithFormat:@"$%lu.%02lu",self.totalAmountInput/100,self.totalAmountInput%100];
 }
 
-- (void)showAmountInput {
-    NSUInteger total = [self.vendingMachineManager pennyAmountOfCoinsInput];
-    self.AmountInputLabel.text = total == 0 ? self.vendingMachineManager.useExactChange ? EXACT_CHANGE_ONLY : INSERT_COIN : [NSString stringWithFormat:@"$%lu.%02lu",total/100,total%100];
+- (void)updateChangeLabel {
+    self.AmountOfChangeLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",self.totalInCoinReturn/100,self.totalInCoinReturn%100];
 }
 
-- (void)showAmountOfChange {
-    NSUInteger change = [self.vendingMachineManager pennyAmountOfCoinsReturned];
-    self.AmountOfChangeLabel.text = [NSString stringWithFormat:@"$%lu.%02lu",change/100,change%100];
-}
-
-- (void)showProductPrice:(Product *)product {
-    NSString *priceLabel = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,product.price/100,product.price%100];
+- (void)showProductPrice {
+    NSString *priceLabel = [NSString stringWithFormat:@"%@ $%lu.%02lu",PRICE,self.currentProductPrice/100,self.currentProductPrice%100];
     self.AmountInputLabel.text = self.vendingMachineManager.isSoldOut ? SOLD_OUT : self.vendingMachineManager.productCostExceeded ? EXACT_CHANGE_ONLY : priceLabel;
 }
 
@@ -154,13 +174,16 @@
 }
 
 - (void)buyProduct:(Product *)product {
-    if ([self.vendingMachineManager buyProduct:product]) {
+    self.currentProductPrice = product.price;
+
+    if (!self.vendingMachineManager.isSoldOut && [self.vendingMachineManager buyProduct:product]) {
+        [self updateCoinAmounts];
         [self showThankYou];
-        [self showAmountOfChange];
+        [self updateChangeLabel];
     } else {
-        [self needMoreMoney:product];
+        [self showProductPrice];
     }
-    [self performSelector:@selector(showAmountInput) withObject:nil afterDelay:self.secondsOfDelay];
+    [self performSelector:@selector(updateInputLabel) withObject:nil afterDelay:self.secondsOfDelay];
 }
 
 - (void)setSoldOut:(BOOL)isSoldOut {
@@ -169,7 +192,7 @@
 
 - (void)setExactChange:(BOOL)useExactChange {
     self.vendingMachineManager.useExactChange = useExactChange;
-    [self showAmountInput];
+    [self updateInputLabel];
 }
 
 @end

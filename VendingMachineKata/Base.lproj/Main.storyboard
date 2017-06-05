@@ -45,7 +45,7 @@
                                                 <rect key="frame" x="32.5" y="50.5" width="81" height="30"/>
                                                 <state key="normal" title="Coin Return"/>
                                                 <connections>
-                                                    <action selector="returnCoins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oum-C5-gmG"/>
+                                                    <action selector="returnCoinButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UyH-QS-4Z4"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -64,7 +64,7 @@
                                                 <rect key="frame" x="19" y="32.5" width="90" height="48"/>
                                                 <state key="normal" title="Take Change"/>
                                                 <connections>
-                                                    <action selector="takeChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qpu-5i-LHM"/>
+                                                    <action selector="takeChangeButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="deG-Rf-9HY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -81,21 +81,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
                                         <state key="normal" title="Buy Chips"/>
                                         <connections>
-                                            <action selector="buyChips:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gbt-ye-waS"/>
+                                            <action selector="buyChipsButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V2T-hw-VfT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rY7-yD-QOt">
                                         <rect key="frame" x="92" y="0.0" width="61" height="30"/>
                                         <state key="normal" title="Buy Cola"/>
                                         <connections>
-                                            <action selector="buyCola:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WrR-Pa-NDP"/>
+                                            <action selector="buyColaButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NR3-WY-w4b"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fs4-t4-Ulx">
                                         <rect key="frame" x="175" y="0.0" width="75" height="30"/>
                                         <state key="normal" title="Buy Candy"/>
                                         <connections>
-                                            <action selector="buyCandy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V1B-gF-RMQ"/>
+                                            <action selector="buyCandyButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V6n-eu-2Yl"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -107,7 +107,7 @@
                                 <rect key="frame" x="50.5" y="454" width="51" height="31"/>
                                 <accessibility key="accessibilityConfiguration" label="Sold Out"/>
                                 <connections>
-                                    <action selector="setSoldOutStatus:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Mi-aM-aoW"/>
+                                    <action selector="soldOutSwitchAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="WYa-tv-ZVb"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-Zy-G6M">

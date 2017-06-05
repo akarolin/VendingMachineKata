@@ -11,25 +11,17 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *AmountInputLabel;
-@property (weak, nonatomic) IBOutlet UILabel *AmountOfChangeLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *soldOutSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *exactChangeSwitch;
+@property NSUInteger totalAmountInput;
+@property NSUInteger totalInCoinReturn;
+@property NSUInteger currentProductPrice;
 
-@property NSTimeInterval secondsOfDelay;
-
-- (IBAction)takeChange:(id)sender;
-- (IBAction)buyChips:(id)sender;
-- (IBAction)buyCola:(id)sender;
-- (IBAction)buyCandy:(id)sender;
-- (IBAction)returnCoins:(id)sender;
-- (IBAction)setSoldOutStatus:(id)sender;
-- (IBAction)exactChangeSwitchAction:(id)sender;
-
+// exposed for unit testing
+- (void)takeChange;
 - (void)insertCoin:(CoinType) coin;
 - (void)buyProduct:(Product *)product;
 - (void)setSoldOut:(BOOL)isSoldOut;
 - (void)setExactChange:(BOOL)useExactChange;
+- (void)returnCoins;
 
 @end
 
